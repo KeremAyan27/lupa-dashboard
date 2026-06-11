@@ -1,0 +1,1802 @@
+[
+  {
+    "customerId": "C0001",
+    "name": "Kerem Yılmaz",
+    "email": "kerem.yilmaz797@example.com",
+    "city": "Adana",
+    "segment": "Normal",
+    "registerDate": "2023-08-24",
+    "totalSpent": 216779.26
+  },
+  {
+    "customerId": "C0002",
+    "name": "İsmail Özdemir",
+    "email": "i̇smail.ozdemir986@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2025-06-10",
+    "totalSpent": 271677.18
+  },
+  {
+    "customerId": "C0003",
+    "name": "Ayşe Koç",
+    "email": "ayse.koc901@example.com",
+    "city": "Adana",
+    "segment": "Normal",
+    "registerDate": "2024-01-02",
+    "totalSpent": 430342.9
+  },
+  {
+    "customerId": "C0004",
+    "name": "Can Şimşek",
+    "email": "can.simsek175@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2024-02-13",
+    "totalSpent": 247528.59
+  },
+  {
+    "customerId": "C0005",
+    "name": "Cenk Yılmaz",
+    "email": "cenk.yilmaz961@example.com",
+    "city": "Ankara",
+    "segment": "VIP",
+    "registerDate": "2024-10-26",
+    "totalSpent": 277134.15
+  },
+  {
+    "customerId": "C0006",
+    "name": "Hatice Öztürk",
+    "email": "hatice.ozturk979@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-04-30",
+    "totalSpent": 198411.77
+  },
+  {
+    "customerId": "C0007",
+    "name": "Aslı Demir",
+    "email": "asli.demir496@example.com",
+    "city": "Van",
+    "segment": "VIP",
+    "registerDate": "2025-12-27",
+    "totalSpent": 316797.86
+  },
+  {
+    "customerId": "C0008",
+    "name": "Murat Aydın",
+    "email": "murat.aydin226@example.com",
+    "city": "Balıkesir",
+    "segment": "Normal",
+    "registerDate": "2025-12-17",
+    "totalSpent": 173311.28
+  },
+  {
+    "customerId": "C0009",
+    "name": "Burak Polat",
+    "email": "burak.polat675@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-10-01",
+    "totalSpent": 346095.1
+  },
+  {
+    "customerId": "C0010",
+    "name": "Cenk Çetin",
+    "email": "cenk.cetin356@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-09-06",
+    "totalSpent": 242658.03
+  },
+  {
+    "customerId": "C0011",
+    "name": "Kerem Öztürk",
+    "email": "kerem.ozturk656@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2024-03-28",
+    "totalSpent": 342368.53
+  },
+  {
+    "customerId": "C0012",
+    "name": "Hüseyin Kaya",
+    "email": "huseyin.kaya295@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2024-11-08",
+    "totalSpent": 169392.56
+  },
+  {
+    "customerId": "C0013",
+    "name": "Cem Kurt",
+    "email": "cem.kurt258@example.com",
+    "city": "Kocaeli",
+    "segment": "Normal",
+    "registerDate": "2023-09-29",
+    "totalSpent": 48422.12
+  },
+  {
+    "customerId": "C0014",
+    "name": "Ezgi Yıldırım",
+    "email": "ezgi.yildirim372@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-07-14",
+    "totalSpent": 295846.46
+  },
+  {
+    "customerId": "C0015",
+    "name": "Sibel Türk",
+    "email": "sibel.turk110@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-04-22",
+    "totalSpent": 370205.82
+  },
+  {
+    "customerId": "C0016",
+    "name": "Elif Şahin",
+    "email": "elif.sahin469@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-25",
+    "totalSpent": 236092.22
+  },
+  {
+    "customerId": "C0017",
+    "name": "Emre Aydın",
+    "email": "emre.aydin87@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-08-06",
+    "totalSpent": 429293.24
+  },
+  {
+    "customerId": "C0018",
+    "name": "Kerem Şahin",
+    "email": "kerem.sahin866@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-04-15",
+    "totalSpent": 245338.24
+  },
+  {
+    "customerId": "C0019",
+    "name": "Hasan Öztürk",
+    "email": "hasan.ozturk228@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2023-12-08",
+    "totalSpent": 267041.84
+  },
+  {
+    "customerId": "C0020",
+    "name": "Ali Yıldız",
+    "email": "ali.yildiz281@example.com",
+    "city": "Balıkesir",
+    "segment": "Normal",
+    "registerDate": "2025-02-16",
+    "totalSpent": 408703.53
+  },
+  {
+    "customerId": "C0021",
+    "name": "Sibel Özdemir",
+    "email": "sibel.ozdemir508@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-05-17",
+    "totalSpent": 156557.02
+  },
+  {
+    "customerId": "C0022",
+    "name": "Emine Yıldırım",
+    "email": "emine.yildirim72@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2023-05-01",
+    "totalSpent": 340118.1
+  },
+  {
+    "customerId": "C0023",
+    "name": "Ali Kaya",
+    "email": "ali.kaya553@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-09-04",
+    "totalSpent": 431568.27
+  },
+  {
+    "customerId": "C0024",
+    "name": "Can Demir",
+    "email": "can.demir701@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2024-01-17",
+    "totalSpent": 202893.43
+  },
+  {
+    "customerId": "C0025",
+    "name": "Deniz Şahin",
+    "email": "deniz.sahin644@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-20",
+    "totalSpent": 283445.57
+  },
+  {
+    "customerId": "C0026",
+    "name": "Volkan Özkan",
+    "email": "volkan.ozkan219@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2025-12-07",
+    "totalSpent": 211769.04
+  },
+  {
+    "customerId": "C0027",
+    "name": "Zeynep Öztürk",
+    "email": "zeynep.ozturk670@example.com",
+    "city": "Ankara",
+    "segment": "VIP",
+    "registerDate": "2024-06-28",
+    "totalSpent": 316349.54
+  },
+  {
+    "customerId": "C0028",
+    "name": "Zeynep Demir",
+    "email": "zeynep.demir586@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2023-01-21",
+    "totalSpent": 213051.68
+  },
+  {
+    "customerId": "C0029",
+    "name": "Hüseyin Kurt",
+    "email": "huseyin.kurt965@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-03-13",
+    "totalSpent": 465219.66
+  },
+  {
+    "customerId": "C0030",
+    "name": "Hüseyin Öztürk",
+    "email": "huseyin.ozturk863@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-01-27",
+    "totalSpent": 124000.06
+  },
+  {
+    "customerId": "C0031",
+    "name": "Hatice Şimşek",
+    "email": "hatice.simsek577@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-12-20",
+    "totalSpent": 511863.15
+  },
+  {
+    "customerId": "C0032",
+    "name": "İbrahim Çelik",
+    "email": "i̇brahim.celik770@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2024-06-26",
+    "totalSpent": 279132.74
+  },
+  {
+    "customerId": "C0033",
+    "name": "Fatma Özdemir",
+    "email": "fatma.ozdemir659@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2024-03-08",
+    "totalSpent": 309288.16
+  },
+  {
+    "customerId": "C0034",
+    "name": "Can Kara",
+    "email": "can.kara443@example.com",
+    "city": "Diyarbakır",
+    "segment": "VIP",
+    "registerDate": "2024-05-30",
+    "totalSpent": 531277.73
+  },
+  {
+    "customerId": "C0035",
+    "name": "Mustafa Yılmaz",
+    "email": "mustafa.yilmaz278@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-11-15",
+    "totalSpent": 195828.88
+  },
+  {
+    "customerId": "C0036",
+    "name": "Selma Kurt",
+    "email": "selma.kurt87@example.com",
+    "city": "Van",
+    "segment": "VIP",
+    "registerDate": "2025-05-26",
+    "totalSpent": 563711.45
+  },
+  {
+    "customerId": "C0037",
+    "name": "Yusuf Kurt",
+    "email": "yusuf.kurt161@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-03-16",
+    "totalSpent": 166612.91
+  },
+  {
+    "customerId": "C0038",
+    "name": "Mustafa Özdemir",
+    "email": "mustafa.ozdemir225@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2025-01-17",
+    "totalSpent": 198941.99
+  },
+  {
+    "customerId": "C0039",
+    "name": "İbrahim Doğan",
+    "email": "i̇brahim.dogan957@example.com",
+    "city": "Balıkesir",
+    "segment": "Normal",
+    "registerDate": "2025-04-13",
+    "totalSpent": 372067.78
+  },
+  {
+    "customerId": "C0040",
+    "name": "Murat Yıldız",
+    "email": "murat.yildiz956@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-04-25",
+    "totalSpent": 407613.65
+  },
+  {
+    "customerId": "C0041",
+    "name": "Ezgi Güneş",
+    "email": "ezgi.gunes728@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-24",
+    "totalSpent": 440548.13
+  },
+  {
+    "customerId": "C0042",
+    "name": "Mustafa Kara",
+    "email": "mustafa.kara481@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-04-01",
+    "totalSpent": 409321.76
+  },
+  {
+    "customerId": "C0043",
+    "name": "Onur Öztürk",
+    "email": "onur.ozturk295@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2023-02-19",
+    "totalSpent": 332262.87
+  },
+  {
+    "customerId": "C0044",
+    "name": "Fatma Doğan",
+    "email": "fatma.dogan873@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-11-10",
+    "totalSpent": 397128.45
+  },
+  {
+    "customerId": "C0045",
+    "name": "Mehmet Şahin",
+    "email": "mehmet.sahin281@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-06-19",
+    "totalSpent": 361210.36
+  },
+  {
+    "customerId": "C0046",
+    "name": "Berk Aslan",
+    "email": "berk.aslan533@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-12-09",
+    "totalSpent": 657527.1
+  },
+  {
+    "customerId": "C0047",
+    "name": "Tolga Yıldırım",
+    "email": "tolga.yildirim11@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2024-06-06",
+    "totalSpent": 339520.69
+  },
+  {
+    "customerId": "C0048",
+    "name": "Gökhan Güneş",
+    "email": "gokhan.gunes981@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2024-02-09",
+    "totalSpent": 379174.21
+  },
+  {
+    "customerId": "C0049",
+    "name": "Elif Şimşek",
+    "email": "elif.simsek317@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2024-10-05",
+    "totalSpent": 143044.92
+  },
+  {
+    "customerId": "C0050",
+    "name": "Ezgi Arslan",
+    "email": "ezgi.arslan206@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-04-05",
+    "totalSpent": 176434.08
+  },
+  {
+    "customerId": "C0051",
+    "name": "Selin Güneş",
+    "email": "selin.gunes425@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2023-12-24",
+    "totalSpent": 229964.93
+  },
+  {
+    "customerId": "C0052",
+    "name": "Ahmet Özdemir",
+    "email": "ahmet.ozdemir603@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2024-08-11",
+    "totalSpent": 272824.1
+  },
+  {
+    "customerId": "C0053",
+    "name": "Zeynep Çetin",
+    "email": "zeynep.cetin533@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-06-24",
+    "totalSpent": 262336.42
+  },
+  {
+    "customerId": "C0054",
+    "name": "Murat Güneş",
+    "email": "murat.gunes658@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2023-06-24",
+    "totalSpent": 416046.94
+  },
+  {
+    "customerId": "C0055",
+    "name": "Hasan Öztürk",
+    "email": "hasan.ozturk160@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-09-28",
+    "totalSpent": 241307.79
+  },
+  {
+    "customerId": "C0056",
+    "name": "Serkan Kara",
+    "email": "serkan.kara654@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2023-05-31",
+    "totalSpent": 281307.34
+  },
+  {
+    "customerId": "C0057",
+    "name": "Selin Kara",
+    "email": "selin.kara714@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2025-03-30",
+    "totalSpent": 525982.94
+  },
+  {
+    "customerId": "C0058",
+    "name": "İbrahim Aslan",
+    "email": "i̇brahim.aslan722@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2024-03-25",
+    "totalSpent": 205836.72
+  },
+  {
+    "customerId": "C0059",
+    "name": "Ali Kurt",
+    "email": "ali.kurt830@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2024-05-26",
+    "totalSpent": 227818.33
+  },
+  {
+    "customerId": "C0060",
+    "name": "Cenk Kurt",
+    "email": "cenk.kurt746@example.com",
+    "city": "Samsun",
+    "segment": "Normal",
+    "registerDate": "2024-10-12",
+    "totalSpent": 192144.71
+  },
+  {
+    "customerId": "C0061",
+    "name": "Pınar Kurt",
+    "email": "pinar.kurt496@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-07-03",
+    "totalSpent": 363412.33
+  },
+  {
+    "customerId": "C0062",
+    "name": "Serkan Erdoğan",
+    "email": "serkan.erdogan254@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-07-22",
+    "totalSpent": 319053.5
+  },
+  {
+    "customerId": "C0063",
+    "name": "Hüseyin Polat",
+    "email": "huseyin.polat337@example.com",
+    "city": "Samsun",
+    "segment": "Normal",
+    "registerDate": "2024-08-09",
+    "totalSpent": 486174.16
+  },
+  {
+    "customerId": "C0064",
+    "name": "Hasan Çelik",
+    "email": "hasan.celik166@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2023-11-06",
+    "totalSpent": 267889.66
+  },
+  {
+    "customerId": "C0065",
+    "name": "Hüseyin Aslan",
+    "email": "huseyin.aslan435@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-04-15",
+    "totalSpent": 362972.41
+  },
+  {
+    "customerId": "C0066",
+    "name": "Ezgi Kılıç",
+    "email": "ezgi.kilic16@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2023-02-11",
+    "totalSpent": 185033.92
+  },
+  {
+    "customerId": "C0067",
+    "name": "Hatice Kılıç",
+    "email": "hatice.kilic569@example.com",
+    "city": "Mersin",
+    "segment": "Normal",
+    "registerDate": "2025-05-09",
+    "totalSpent": 360009.48
+  },
+  {
+    "customerId": "C0068",
+    "name": "Onur Kara",
+    "email": "onur.kara39@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-03-26",
+    "totalSpent": 392547.56
+  },
+  {
+    "customerId": "C0069",
+    "name": "Deniz Türk",
+    "email": "deniz.turk647@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2023-12-06",
+    "totalSpent": 441673.53
+  },
+  {
+    "customerId": "C0070",
+    "name": "Deniz Özkan",
+    "email": "deniz.ozkan148@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2023-02-26",
+    "totalSpent": 265704.41
+  },
+  {
+    "customerId": "C0071",
+    "name": "Emre Kaya",
+    "email": "emre.kaya475@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-06-17",
+    "totalSpent": 245570.75
+  },
+  {
+    "customerId": "C0072",
+    "name": "Selin Aydın",
+    "email": "selin.aydin491@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-05-14",
+    "totalSpent": 436175.82
+  },
+  {
+    "customerId": "C0073",
+    "name": "Gökhan Kaya",
+    "email": "gokhan.kaya809@example.com",
+    "city": "Aydın",
+    "segment": "Normal",
+    "registerDate": "2024-12-18",
+    "totalSpent": 93707.58
+  },
+  {
+    "customerId": "C0074",
+    "name": "Mustafa Yılmaz",
+    "email": "mustafa.yilmaz646@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-22",
+    "totalSpent": 444057.99
+  },
+  {
+    "customerId": "C0075",
+    "name": "Osman Kara",
+    "email": "osman.kara486@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2023-08-24",
+    "totalSpent": 183630.7
+  },
+  {
+    "customerId": "C0076",
+    "name": "Esra Yıldız",
+    "email": "esra.yildiz120@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2023-08-24",
+    "totalSpent": 209144.99
+  },
+  {
+    "customerId": "C0077",
+    "name": "Hatice Özkan",
+    "email": "hatice.ozkan213@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-02-08",
+    "totalSpent": 316680.71
+  },
+  {
+    "customerId": "C0078",
+    "name": "Serkan Şahin",
+    "email": "serkan.sahin825@example.com",
+    "city": "Tekirdağ",
+    "segment": "Normal",
+    "registerDate": "2024-09-10",
+    "totalSpent": 123845.27
+  },
+  {
+    "customerId": "C0079",
+    "name": "Mustafa Doğan",
+    "email": "mustafa.dogan80@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-12-28",
+    "totalSpent": 286623.7
+  },
+  {
+    "customerId": "C0080",
+    "name": "Elif Yılmaz",
+    "email": "elif.yilmaz993@example.com",
+    "city": "Ankara",
+    "segment": "VIP",
+    "registerDate": "2025-05-11",
+    "totalSpent": 286802.3
+  },
+  {
+    "customerId": "C0081",
+    "name": "Sibel Polat",
+    "email": "sibel.polat544@example.com",
+    "city": "Denizli",
+    "segment": "Normal",
+    "registerDate": "2023-11-11",
+    "totalSpent": 338596.69
+  },
+  {
+    "customerId": "C0082",
+    "name": "Fatma Şimşek",
+    "email": "fatma.simsek758@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2025-09-18",
+    "totalSpent": 254118.16
+  },
+  {
+    "customerId": "C0083",
+    "name": "Zeynep Öztürk",
+    "email": "zeynep.ozturk259@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2023-06-28",
+    "totalSpent": 197477.47
+  },
+  {
+    "customerId": "C0084",
+    "name": "Tolga Şimşek",
+    "email": "tolga.simsek881@example.com",
+    "city": "Ankara",
+    "segment": "VIP",
+    "registerDate": "2025-02-16",
+    "totalSpent": 422304.79
+  },
+  {
+    "customerId": "C0085",
+    "name": "Aslı Yıldırım",
+    "email": "asli.yildirim911@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2024-12-28",
+    "totalSpent": 177039.64
+  },
+  {
+    "customerId": "C0086",
+    "name": "Fatma Kurt",
+    "email": "fatma.kurt97@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-01-22",
+    "totalSpent": 218971.91
+  },
+  {
+    "customerId": "C0087",
+    "name": "Ezgi Kara",
+    "email": "ezgi.kara512@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2024-05-08",
+    "totalSpent": 227280.91
+  },
+  {
+    "customerId": "C0088",
+    "name": "Mehmet Demir",
+    "email": "mehmet.demir259@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-08-26",
+    "totalSpent": 341146.11
+  },
+  {
+    "customerId": "C0089",
+    "name": "Volkan Doğan",
+    "email": "volkan.dogan445@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2025-08-28",
+    "totalSpent": 308429.32
+  },
+  {
+    "customerId": "C0090",
+    "name": "Kerem Arslan",
+    "email": "kerem.arslan267@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-12-22",
+    "totalSpent": 392143.52
+  },
+  {
+    "customerId": "C0091",
+    "name": "Burak Arslan",
+    "email": "burak.arslan716@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-09-03",
+    "totalSpent": 95821.44
+  },
+  {
+    "customerId": "C0092",
+    "name": "Cem Türk",
+    "email": "cem.turk788@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-09-19",
+    "totalSpent": 185748.34
+  },
+  {
+    "customerId": "C0093",
+    "name": "Emine Şahin",
+    "email": "emine.sahin193@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-02-03",
+    "totalSpent": 285880.71
+  },
+  {
+    "customerId": "C0094",
+    "name": "Gökhan Çelik",
+    "email": "gokhan.celik576@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-07-16",
+    "totalSpent": 209045.49
+  },
+  {
+    "customerId": "C0095",
+    "name": "Osman Erdoğan",
+    "email": "osman.erdogan597@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-10-03",
+    "totalSpent": 215207.09
+  },
+  {
+    "customerId": "C0096",
+    "name": "Yasemin Çetin",
+    "email": "yasemin.cetin268@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2024-11-29",
+    "totalSpent": 203179.1
+  },
+  {
+    "customerId": "C0097",
+    "name": "Yasemin Şahin",
+    "email": "yasemin.sahin600@example.com",
+    "city": "Adana",
+    "segment": "Normal",
+    "registerDate": "2023-05-15",
+    "totalSpent": 321863.59
+  },
+  {
+    "customerId": "C0098",
+    "name": "Ali Çelik",
+    "email": "ali.celik97@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2023-11-03",
+    "totalSpent": 432828.98
+  },
+  {
+    "customerId": "C0099",
+    "name": "İsmail Kurt",
+    "email": "i̇smail.kurt643@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-05-03",
+    "totalSpent": 211633.99
+  },
+  {
+    "customerId": "C0100",
+    "name": "Cenk Kılıç",
+    "email": "cenk.kilic612@example.com",
+    "city": "Tekirdağ",
+    "segment": "Normal",
+    "registerDate": "2025-07-12",
+    "totalSpent": 308728.04
+  },
+  {
+    "customerId": "C0101",
+    "name": "Hatice Özkan",
+    "email": "hatice.ozkan111@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2023-05-05",
+    "totalSpent": 387366.28
+  },
+  {
+    "customerId": "C0102",
+    "name": "Cem Erdoğan",
+    "email": "cem.erdogan170@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-03-09",
+    "totalSpent": 255971.05
+  },
+  {
+    "customerId": "C0103",
+    "name": "Kerem Demir",
+    "email": "kerem.demir715@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2023-11-18",
+    "totalSpent": 147268.67
+  },
+  {
+    "customerId": "C0104",
+    "name": "Emine Kaya",
+    "email": "emine.kaya729@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2024-04-20",
+    "totalSpent": 334969.01
+  },
+  {
+    "customerId": "C0105",
+    "name": "Hüseyin Güneş",
+    "email": "huseyin.gunes650@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2024-04-24",
+    "totalSpent": 208822.05
+  },
+  {
+    "customerId": "C0106",
+    "name": "Burak Aslan",
+    "email": "burak.aslan162@example.com",
+    "city": "Samsun",
+    "segment": "Normal",
+    "registerDate": "2023-08-25",
+    "totalSpent": 448523.14
+  },
+  {
+    "customerId": "C0107",
+    "name": "Yusuf Demir",
+    "email": "yusuf.demir619@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2023-05-04",
+    "totalSpent": 446076.8
+  },
+  {
+    "customerId": "C0108",
+    "name": "Tolga Özdemir",
+    "email": "tolga.ozdemir321@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2025-06-19",
+    "totalSpent": 467182.59
+  },
+  {
+    "customerId": "C0109",
+    "name": "Fatma Koç",
+    "email": "fatma.koc50@example.com",
+    "city": "Kayseri",
+    "segment": "VIP",
+    "registerDate": "2025-10-09",
+    "totalSpent": 493708.02
+  },
+  {
+    "customerId": "C0110",
+    "name": "Zeynep Şimşek",
+    "email": "zeynep.simsek994@example.com",
+    "city": "Konya",
+    "segment": "VIP",
+    "registerDate": "2024-05-28",
+    "totalSpent": 588724.14
+  },
+  {
+    "customerId": "C0111",
+    "name": "Tolga Özkan",
+    "email": "tolga.ozkan791@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2023-02-13",
+    "totalSpent": 328707.23
+  },
+  {
+    "customerId": "C0112",
+    "name": "Yasemin Koç",
+    "email": "yasemin.koc609@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-06-25",
+    "totalSpent": 238154.01
+  },
+  {
+    "customerId": "C0113",
+    "name": "Aslı Demir",
+    "email": "asli.demir338@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2025-08-21",
+    "totalSpent": 422470.45
+  },
+  {
+    "customerId": "C0114",
+    "name": "Murat Arslan",
+    "email": "murat.arslan977@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-04-24",
+    "totalSpent": 252860.59
+  },
+  {
+    "customerId": "C0115",
+    "name": "Kerem Kaya",
+    "email": "kerem.kaya341@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-07-21",
+    "totalSpent": 241298.54
+  },
+  {
+    "customerId": "C0116",
+    "name": "Deniz Koç",
+    "email": "deniz.koc483@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-01-04",
+    "totalSpent": 278929.27
+  },
+  {
+    "customerId": "C0117",
+    "name": "Burak Koç",
+    "email": "burak.koc650@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-01-11",
+    "totalSpent": 568313.8
+  },
+  {
+    "customerId": "C0118",
+    "name": "Ali Yıldırım",
+    "email": "ali.yildirim304@example.com",
+    "city": "İzmir",
+    "segment": "VIP",
+    "registerDate": "2024-07-01",
+    "totalSpent": 383412.64
+  },
+  {
+    "customerId": "C0119",
+    "name": "Aslı Şahin",
+    "email": "asli.sahin255@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2023-03-02",
+    "totalSpent": 313051.73
+  },
+  {
+    "customerId": "C0120",
+    "name": "Hatice Kurt",
+    "email": "hatice.kurt240@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2023-01-30",
+    "totalSpent": 213855.89
+  },
+  {
+    "customerId": "C0121",
+    "name": "İsmail Çetin",
+    "email": "i̇smail.cetin520@example.com",
+    "city": "Kahramanmaraş",
+    "segment": "Normal",
+    "registerDate": "2023-08-30",
+    "totalSpent": 346620.28
+  },
+  {
+    "customerId": "C0122",
+    "name": "Emine Koç",
+    "email": "emine.koc493@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-07-14",
+    "totalSpent": 429540.85
+  },
+  {
+    "customerId": "C0123",
+    "name": "Kerem Çelik",
+    "email": "kerem.celik530@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2025-02-25",
+    "totalSpent": 289447.86
+  },
+  {
+    "customerId": "C0124",
+    "name": "Osman Demir",
+    "email": "osman.demir816@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2024-07-20",
+    "totalSpent": 271251.25
+  },
+  {
+    "customerId": "C0125",
+    "name": "Ahmet Özdemir",
+    "email": "ahmet.ozdemir685@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2024-09-04",
+    "totalSpent": 241239.17
+  },
+  {
+    "customerId": "C0126",
+    "name": "Yusuf Çetin",
+    "email": "yusuf.cetin791@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-09-19",
+    "totalSpent": 197867.64
+  },
+  {
+    "customerId": "C0127",
+    "name": "Sibel Arslan",
+    "email": "sibel.arslan249@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2024-01-23",
+    "totalSpent": 275519.51
+  },
+  {
+    "customerId": "C0128",
+    "name": "Ezgi Kaya",
+    "email": "ezgi.kaya840@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-10-14",
+    "totalSpent": 362627.16
+  },
+  {
+    "customerId": "C0129",
+    "name": "Yusuf Kara",
+    "email": "yusuf.kara614@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-03-18",
+    "totalSpent": 279590.52
+  },
+  {
+    "customerId": "C0130",
+    "name": "İbrahim Çetin",
+    "email": "i̇brahim.cetin25@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2023-07-25",
+    "totalSpent": 449356.8
+  },
+  {
+    "customerId": "C0131",
+    "name": "Ezgi Erdoğan",
+    "email": "ezgi.erdogan281@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-11-14",
+    "totalSpent": 400775.1
+  },
+  {
+    "customerId": "C0132",
+    "name": "Deniz Erdoğan",
+    "email": "deniz.erdogan889@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2023-06-15",
+    "totalSpent": 192055.37
+  },
+  {
+    "customerId": "C0133",
+    "name": "Zeynep Erdoğan",
+    "email": "zeynep.erdogan80@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2025-09-27",
+    "totalSpent": 557953.31
+  },
+  {
+    "customerId": "C0134",
+    "name": "Emine Öztürk",
+    "email": "emine.ozturk788@example.com",
+    "city": "Adana",
+    "segment": "Normal",
+    "registerDate": "2023-07-06",
+    "totalSpent": 280476.04
+  },
+  {
+    "customerId": "C0135",
+    "name": "İbrahim Çetin",
+    "email": "i̇brahim.cetin57@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-12-08",
+    "totalSpent": 281723.43
+  },
+  {
+    "customerId": "C0136",
+    "name": "Ali Özdemir",
+    "email": "ali.ozdemir260@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-01-05",
+    "totalSpent": 320247.78
+  },
+  {
+    "customerId": "C0137",
+    "name": "Tolga Güneş",
+    "email": "tolga.gunes634@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2024-01-05",
+    "totalSpent": 349210.82
+  },
+  {
+    "customerId": "C0138",
+    "name": "Doruk Güneş",
+    "email": "doruk.gunes156@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-09",
+    "totalSpent": 320617.16
+  },
+  {
+    "customerId": "C0139",
+    "name": "Ayşe Çetin",
+    "email": "ayse.cetin486@example.com",
+    "city": "Samsun",
+    "segment": "Normal",
+    "registerDate": "2024-06-07",
+    "totalSpent": 354185.4
+  },
+  {
+    "customerId": "C0140",
+    "name": "Gökhan Yıldız",
+    "email": "gokhan.yildiz611@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-06-02",
+    "totalSpent": 300040.82
+  },
+  {
+    "customerId": "C0141",
+    "name": "Pınar Polat",
+    "email": "pinar.polat213@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2024-05-28",
+    "totalSpent": 388280.24
+  },
+  {
+    "customerId": "C0142",
+    "name": "Yasemin Şahin",
+    "email": "yasemin.sahin598@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-05-01",
+    "totalSpent": 209815.37
+  },
+  {
+    "customerId": "C0143",
+    "name": "Emine Yılmaz",
+    "email": "emine.yilmaz895@example.com",
+    "city": "Konya",
+    "segment": "VIP",
+    "registerDate": "2025-03-22",
+    "totalSpent": 341844.24
+  },
+  {
+    "customerId": "C0144",
+    "name": "Ali Şimşek",
+    "email": "ali.simsek245@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2025-10-15",
+    "totalSpent": 364039.96
+  },
+  {
+    "customerId": "C0145",
+    "name": "Merve Öztürk",
+    "email": "merve.ozturk783@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2024-01-26",
+    "totalSpent": 357047.03
+  },
+  {
+    "customerId": "C0146",
+    "name": "Osman Erdoğan",
+    "email": "osman.erdogan326@example.com",
+    "city": "Kocaeli",
+    "segment": "Normal",
+    "registerDate": "2023-07-19",
+    "totalSpent": 149391.97
+  },
+  {
+    "customerId": "C0147",
+    "name": "Mustafa Özkan",
+    "email": "mustafa.ozkan312@example.com",
+    "city": "Ankara",
+    "segment": "VIP",
+    "registerDate": "2025-01-18",
+    "totalSpent": 772361.96
+  },
+  {
+    "customerId": "C0148",
+    "name": "Ezgi Yıldız",
+    "email": "ezgi.yildiz907@example.com",
+    "city": "Sakarya",
+    "segment": "Normal",
+    "registerDate": "2024-02-17",
+    "totalSpent": 365272.75
+  },
+  {
+    "customerId": "C0149",
+    "name": "Cenk Koç",
+    "email": "cenk.koc854@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2024-07-13",
+    "totalSpent": 236261.94
+  },
+  {
+    "customerId": "C0150",
+    "name": "Emine Türk",
+    "email": "emine.turk87@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-11-25",
+    "totalSpent": 274123.53
+  },
+  {
+    "customerId": "C0151",
+    "name": "Onur Güneş",
+    "email": "onur.gunes819@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-03-25",
+    "totalSpent": 384138.4
+  },
+  {
+    "customerId": "C0152",
+    "name": "Ayşe Kurt",
+    "email": "ayse.kurt776@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2023-09-12",
+    "totalSpent": 473969.34
+  },
+  {
+    "customerId": "C0153",
+    "name": "Volkan Kılıç",
+    "email": "volkan.kilic492@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-01-31",
+    "totalSpent": 362875.09
+  },
+  {
+    "customerId": "C0154",
+    "name": "Kerem Arslan",
+    "email": "kerem.arslan853@example.com",
+    "city": "İzmir",
+    "segment": "VIP",
+    "registerDate": "2024-03-30",
+    "totalSpent": 610878.52
+  },
+  {
+    "customerId": "C0155",
+    "name": "Hatice Erdoğan",
+    "email": "hatice.erdogan978@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2025-04-17",
+    "totalSpent": 515364.99
+  },
+  {
+    "customerId": "C0156",
+    "name": "Aslı Şahin",
+    "email": "asli.sahin148@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2023-07-20",
+    "totalSpent": 241645.7
+  },
+  {
+    "customerId": "C0157",
+    "name": "Esra Güneş",
+    "email": "esra.gunes168@example.com",
+    "city": "Kayseri",
+    "segment": "Normal",
+    "registerDate": "2025-05-09",
+    "totalSpent": 249001.21
+  },
+  {
+    "customerId": "C0158",
+    "name": "İbrahim Kara",
+    "email": "i̇brahim.kara389@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2025-04-16",
+    "totalSpent": 558909.91
+  },
+  {
+    "customerId": "C0159",
+    "name": "Selma Öztürk",
+    "email": "selma.ozturk386@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-01-13",
+    "totalSpent": 404836.99
+  },
+  {
+    "customerId": "C0160",
+    "name": "Merve Kaya",
+    "email": "merve.kaya135@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2025-03-27",
+    "totalSpent": 188424.07
+  },
+  {
+    "customerId": "C0161",
+    "name": "Sibel Demir",
+    "email": "sibel.demir31@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-03-11",
+    "totalSpent": 411083.74
+  },
+  {
+    "customerId": "C0162",
+    "name": "Elif Öztürk",
+    "email": "elif.ozturk859@example.com",
+    "city": "Kocaeli",
+    "segment": "Normal",
+    "registerDate": "2023-09-16",
+    "totalSpent": 288743.13
+  },
+  {
+    "customerId": "C0163",
+    "name": "Cem Özkan",
+    "email": "cem.ozkan161@example.com",
+    "city": "Kocaeli",
+    "segment": "Normal",
+    "registerDate": "2024-03-19",
+    "totalSpent": 139569.36
+  },
+  {
+    "customerId": "C0164",
+    "name": "Berk Yılmaz",
+    "email": "berk.yilmaz563@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-07-22",
+    "totalSpent": 270549.68
+  },
+  {
+    "customerId": "C0165",
+    "name": "Emre Şahin",
+    "email": "emre.sahin818@example.com",
+    "city": "Kocaeli",
+    "segment": "VIP",
+    "registerDate": "2023-02-23",
+    "totalSpent": 261754.61
+  },
+  {
+    "customerId": "C0166",
+    "name": "Volkan Arslan",
+    "email": "volkan.arslan139@example.com",
+    "city": "Şanlıurfa",
+    "segment": "Normal",
+    "registerDate": "2023-02-03",
+    "totalSpent": 247012.75
+  },
+  {
+    "customerId": "C0167",
+    "name": "Cenk Şahin",
+    "email": "cenk.sahin380@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-05-12",
+    "totalSpent": 292476.67
+  },
+  {
+    "customerId": "C0168",
+    "name": "İbrahim Çetin",
+    "email": "i̇brahim.cetin54@example.com",
+    "city": "Gaziantep",
+    "segment": "Normal",
+    "registerDate": "2025-10-29",
+    "totalSpent": 246128.04
+  },
+  {
+    "customerId": "C0169",
+    "name": "Cenk Özdemir",
+    "email": "cenk.ozdemir72@example.com",
+    "city": "Muğla",
+    "segment": "Normal",
+    "registerDate": "2025-07-28",
+    "totalSpent": 288754.13
+  },
+  {
+    "customerId": "C0170",
+    "name": "Deniz Aslan",
+    "email": "deniz.aslan464@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-08-11",
+    "totalSpent": 82682.43
+  },
+  {
+    "customerId": "C0171",
+    "name": "Hasan Arslan",
+    "email": "hasan.arslan649@example.com",
+    "city": "Adana",
+    "segment": "VIP",
+    "registerDate": "2023-11-01",
+    "totalSpent": 512518.27
+  },
+  {
+    "customerId": "C0172",
+    "name": "Kerem Polat",
+    "email": "kerem.polat553@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-10-28",
+    "totalSpent": 236607.37
+  },
+  {
+    "customerId": "C0173",
+    "name": "Can Şimşek",
+    "email": "can.simsek127@example.com",
+    "city": "Manisa",
+    "segment": "Normal",
+    "registerDate": "2025-06-01",
+    "totalSpent": 184415.89
+  },
+  {
+    "customerId": "C0174",
+    "name": "Kerem Türk",
+    "email": "kerem.turk243@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-03-17",
+    "totalSpent": 310898.66
+  },
+  {
+    "customerId": "C0175",
+    "name": "Sibel Kılıç",
+    "email": "sibel.kilic330@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2025-05-02",
+    "totalSpent": 217084.77
+  },
+  {
+    "customerId": "C0176",
+    "name": "Esra Çelik",
+    "email": "esra.celik97@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2025-08-30",
+    "totalSpent": 632179.82
+  },
+  {
+    "customerId": "C0177",
+    "name": "İbrahim Türk",
+    "email": "i̇brahim.turk610@example.com",
+    "city": "Aydın",
+    "segment": "Normal",
+    "registerDate": "2025-02-03",
+    "totalSpent": 375292.54
+  },
+  {
+    "customerId": "C0178",
+    "name": "Kerem Arslan",
+    "email": "kerem.arslan691@example.com",
+    "city": "Van",
+    "segment": "Normal",
+    "registerDate": "2023-09-09",
+    "totalSpent": 427586.38
+  },
+  {
+    "customerId": "C0179",
+    "name": "Pınar Türk",
+    "email": "pinar.turk370@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-04-17",
+    "totalSpent": 153392.83
+  },
+  {
+    "customerId": "C0180",
+    "name": "Can Yıldırım",
+    "email": "can.yildirim877@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-11-14",
+    "totalSpent": 283496.67
+  },
+  {
+    "customerId": "C0181",
+    "name": "Kerem Doğan",
+    "email": "kerem.dogan836@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-08-25",
+    "totalSpent": 164910.16
+  },
+  {
+    "customerId": "C0182",
+    "name": "Kerem Şimşek",
+    "email": "kerem.simsek859@example.com",
+    "city": "Konya",
+    "segment": "Normal",
+    "registerDate": "2023-02-24",
+    "totalSpent": 178508.08
+  },
+  {
+    "customerId": "C0183",
+    "name": "Mehmet Yıldız",
+    "email": "mehmet.yildiz369@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-07-14",
+    "totalSpent": 268543.11
+  },
+  {
+    "customerId": "C0184",
+    "name": "Yusuf Özkan",
+    "email": "yusuf.ozkan658@example.com",
+    "city": "Sakarya",
+    "segment": "VIP",
+    "registerDate": "2025-04-01",
+    "totalSpent": 603236.79
+  },
+  {
+    "customerId": "C0185",
+    "name": "Hasan Türk",
+    "email": "hasan.turk474@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-12-23",
+    "totalSpent": 280407.43
+  },
+  {
+    "customerId": "C0186",
+    "name": "Esra Özdemir",
+    "email": "esra.ozdemir914@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-10-27",
+    "totalSpent": 222549.58
+  },
+  {
+    "customerId": "C0187",
+    "name": "Murat Şimşek",
+    "email": "murat.simsek687@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-04-13",
+    "totalSpent": 407246.64
+  },
+  {
+    "customerId": "C0188",
+    "name": "Berk Çetin",
+    "email": "berk.cetin534@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2025-04-29",
+    "totalSpent": 233525.56
+  },
+  {
+    "customerId": "C0189",
+    "name": "Pınar Şahin",
+    "email": "pinar.sahin693@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2024-08-04",
+    "totalSpent": 357827.31
+  },
+  {
+    "customerId": "C0190",
+    "name": "Onur Kılıç",
+    "email": "onur.kilic978@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2023-04-24",
+    "totalSpent": 366743.91
+  },
+  {
+    "customerId": "C0191",
+    "name": "Osman Aydın",
+    "email": "osman.aydin519@example.com",
+    "city": "Şanlıurfa",
+    "segment": "VIP",
+    "registerDate": "2024-08-16",
+    "totalSpent": 419949.05
+  },
+  {
+    "customerId": "C0192",
+    "name": "Emre Çelik",
+    "email": "emre.celik522@example.com",
+    "city": "Bursa",
+    "segment": "Normal",
+    "registerDate": "2025-02-18",
+    "totalSpent": 310960.66
+  },
+  {
+    "customerId": "C0193",
+    "name": "Merve Demir",
+    "email": "merve.demir480@example.com",
+    "city": "Balıkesir",
+    "segment": "Normal",
+    "registerDate": "2025-03-25",
+    "totalSpent": 389203.62
+  },
+  {
+    "customerId": "C0194",
+    "name": "Zeynep Özkan",
+    "email": "zeynep.ozkan665@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2025-05-30",
+    "totalSpent": 263022.62
+  },
+  {
+    "customerId": "C0195",
+    "name": "İsmail Kılıç",
+    "email": "i̇smail.kilic980@example.com",
+    "city": "Antalya",
+    "segment": "Normal",
+    "registerDate": "2023-02-13",
+    "totalSpent": 395054.83
+  },
+  {
+    "customerId": "C0196",
+    "name": "Esra Demir",
+    "email": "esra.demir613@example.com",
+    "city": "Ankara",
+    "segment": "Normal",
+    "registerDate": "2025-06-14",
+    "totalSpent": 310448.42
+  },
+  {
+    "customerId": "C0197",
+    "name": "Hasan Kılıç",
+    "email": "hasan.kilic807@example.com",
+    "city": "İstanbul",
+    "segment": "Normal",
+    "registerDate": "2024-09-28",
+    "totalSpent": 314509.56
+  },
+  {
+    "customerId": "C0198",
+    "name": "Can Erdoğan",
+    "email": "can.erdogan937@example.com",
+    "city": "Kocaeli",
+    "segment": "Normal",
+    "registerDate": "2023-08-23",
+    "totalSpent": 327175.78
+  },
+  {
+    "customerId": "C0199",
+    "name": "Merve Türk",
+    "email": "merve.turk272@example.com",
+    "city": "İstanbul",
+    "segment": "VIP",
+    "registerDate": "2023-10-31",
+    "totalSpent": 451772.62
+  },
+  {
+    "customerId": "C0200",
+    "name": "Berk Çelik",
+    "email": "berk.celik653@example.com",
+    "city": "İzmir",
+    "segment": "Normal",
+    "registerDate": "2023-06-05",
+    "totalSpent": 336695.84
+  }
+]

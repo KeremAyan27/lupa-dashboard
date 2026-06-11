@@ -1,0 +1,112 @@
+[
+  {
+    "alertId": "A0010",
+    "type": "friction_detected",
+    "severity": "high",
+    "title": "AI Test: Ödeme Adımında Yüksek Vazgeçme",
+    "message": "Sentetik persona testi sonucu: ödeme formunda %34 vazgeçme tespit edildi. Tahmini gelir kaybı: 425.000 TL/ay.",
+    "timestamp": "2026-04-28T09:47",
+    "isRead": false,
+    "relatedType": "ai_simulation",
+    "relatedId": "friction-payment-form"
+  },
+  {
+    "alertId": "A0007",
+    "type": "payment_overdue",
+    "severity": "low",
+    "title": "Geciken Tahsilatlar",
+    "message": "Son 30 günde 12 adet geciken tahsilat var. Toplam tutar: 139,704.53 TL.",
+    "timestamp": "2025-12-29T00:00",
+    "isRead": false,
+    "relatedType": "payment",
+    "relatedId": null
+  },
+  {
+    "alertId": "A0004",
+    "type": "stock_critical",
+    "severity": "medium",
+    "title": "Kritik Stok Seviyesi",
+    "message": "Mutfak Bıçak Seti ürününün stoğu kritik seviyenin altında (19/20).",
+    "timestamp": "2025-12-28T00:00",
+    "isRead": false,
+    "relatedType": "product",
+    "relatedId": "P0028"
+  },
+  {
+    "alertId": "A0006",
+    "type": "stock_critical",
+    "severity": "medium",
+    "title": "Kritik Stok Seviyesi",
+    "message": "Koşu Bandı Katlanır ürününün stoğu kritik seviyenin altında (6/10).",
+    "timestamp": "2025-12-28T00:00",
+    "isRead": false,
+    "relatedType": "product",
+    "relatedId": "P0044"
+  },
+  {
+    "alertId": "A0009",
+    "type": "segment_growth",
+    "severity": "info",
+    "title": "VIP Segment Büyümesi",
+    "message": "VIP müşteri segmentinde son çeyrekte %40 sipariş artışı tespit edildi.",
+    "timestamp": "2025-12-26T00:00",
+    "isRead": false,
+    "relatedType": "segment",
+    "relatedId": "VIP"
+  },
+  {
+    "alertId": "A0002",
+    "type": "stock_critical",
+    "severity": "medium",
+    "title": "Kritik Stok Seviyesi",
+    "message": "Tablet 10 inç 128GB ürününün stoğu kritik seviyenin altında (8/12).",
+    "timestamp": "2025-12-25T00:00",
+    "isRead": false,
+    "relatedType": "product",
+    "relatedId": "P0005"
+  },
+  {
+    "alertId": "A0003",
+    "type": "stock_critical",
+    "severity": "medium",
+    "title": "Kritik Stok Seviyesi",
+    "message": "Cam Saklama Kabı Seti ürününün stoğu kritik seviyenin altında (16/40).",
+    "timestamp": "2025-12-25T00:00",
+    "isRead": false,
+    "relatedType": "product",
+    "relatedId": "P0025"
+  },
+  {
+    "alertId": "A0005",
+    "type": "stock_critical",
+    "severity": "medium",
+    "title": "Kritik Stok Seviyesi",
+    "message": "El Kremi Yoğun Bakım ürününün stoğu kritik seviyenin altında (59/70).",
+    "timestamp": "2025-12-25T00:00",
+    "isRead": false,
+    "relatedType": "product",
+    "relatedId": "P0039"
+  },
+  {
+    "alertId": "A0008",
+    "type": "campaign_success",
+    "severity": "info",
+    "title": "Kampanya Başarısı",
+    "message": "Ekim 2025 bayram kampanyası başarılı: ciro hedefi %35 aşıldı.",
+    "timestamp": "2025-11-01T10:00",
+    "isRead": true,
+    "relatedType": "campaign",
+    "relatedId": null
+  },
+  {
+    "alertId": "A0001",
+    "type": "revenue_drop",
+    "severity": "high",
+    "title": "Ciro Düşüşü Tespit Edildi",
+    "message": "Mart 2025 cirosu, Şubat ayına göre %22 düşüş gösterdi. Ortalamadan 2.3σ sapma.",
+    "timestamp": "2025-04-01T09:00",
+    "isRead": true,
+    "relatedType": "revenue",
+    "relatedId": null
+  }
+]

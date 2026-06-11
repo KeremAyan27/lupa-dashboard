@@ -1,0 +1,176 @@
+{
+  "personas": [
+    {
+      "id": "persona-impatient-young",
+      "name": "Sabırsız Genç",
+      "description": "20-30 yaş, mobil-öncelikli, hızlı karar verici. Yükleme süresi 3 saniyeyi geçince sayfayı terk ediyor.",
+      "uciMapping": "New_Visitor",
+      "ageRange": "20-30",
+      "patienceLevel": "low",
+      "techSavviness": "high",
+      "devicePreference": "mobile",
+      "count": 74,
+      "completionRate": 0.426,
+      "avgSessionMinutes": 3.2,
+      "avgBounceRate": 0.038,
+      "topFrictionPoint": "Ödeme Formu"
+    },
+    {
+      "id": "persona-detailed-comparator",
+      "name": "Detaycı Karşılaştırıcı",
+      "description": "30-45 yaş, çoklu sekme açan, ürünleri karşılaştıran, yorumları okuyan. Karar vermesi 2-3 ziyaret alıyor.",
+      "uciMapping": "Returning_Visitor",
+      "ageRange": "30-45",
+      "patienceLevel": "high",
+      "techSavviness": "medium",
+      "devicePreference": "desktop",
+      "count": 98,
+      "completionRate": 0.691,
+      "avgSessionMinutes": 18.4,
+      "avgBounceRate": 0.012,
+      "topFrictionPoint": "Ürün Karşılaştırma"
+    },
+    {
+      "id": "persona-cautious-buyer",
+      "name": "Tedbirli Alıcı",
+      "description": "45+ yaş, güvenlik endişeli, ödeme adımında tereddüt eden. Kapıda ödeme tercih ediyor.",
+      "uciMapping": "Returning_Visitor",
+      "ageRange": "45+",
+      "patienceLevel": "medium",
+      "techSavviness": "low",
+      "devicePreference": "mobile",
+      "count": 75,
+      "completionRate": 0.541,
+      "avgSessionMinutes": 12.8,
+      "avgBounceRate": 0.024,
+      "topFrictionPoint": "Ödeme Formu"
+    }
+  ],
+  "frictionPoints": [
+    {
+      "id": "friction-payment-form",
+      "step": "Ödeme Formu",
+      "stepOrder": 7,
+      "abandonRate": 0.34,
+      "abandonCount": 50,
+      "severity": "high",
+      "affectedPersonas": [
+        "persona-impatient-young",
+        "persona-cautious-buyer"
+      ],
+      "rootCauses": [
+        "12 zorunlu form alanı (sektör ortalaması: 7)",
+        "Kredi kartı CVV açıklaması yok",
+        "Kapıda ödeme seçeneği gizli, alt menüde"
+      ],
+      "estimatedRevenueImpact": 425000
+    },
+    {
+      "id": "friction-product-comparison",
+      "step": "Ürün Karşılaştırma",
+      "stepOrder": 4,
+      "abandonRate": 0.18,
+      "abandonCount": 17,
+      "severity": "medium",
+      "affectedPersonas": [
+        "persona-detailed-comparator"
+      ],
+      "rootCauses": [
+        "Karşılaştırma listesi sayfa yenilenince siliniyor",
+        "Maksimum 3 ürün karşılaştırılabiliyor",
+        "Karşılaştırma sayfasında fiyat değişikliği uyarısı yok"
+      ],
+      "estimatedRevenueImpact": 180000
+    },
+    {
+      "id": "friction-shipping-info",
+      "step": "Kargo Bilgileri",
+      "stepOrder": 6,
+      "abandonRate": 0.15,
+      "abandonCount": 22,
+      "severity": "medium",
+      "affectedPersonas": [
+        "persona-impatient-young",
+        "persona-cautious-buyer"
+      ],
+      "rootCauses": [
+        "Otomatik adres tamamlama yok",
+        "Kargo süresi belirsiz (sadece '3-5 iş günü' yazıyor)",
+        "Kargo ücreti ödeme adımında değişiyor (sürpriz)"
+      ],
+      "estimatedRevenueImpact": 145000
+    }
+  ],
+  "recommendedActions": [
+    {
+      "id": "action-1",
+      "priority": "high",
+      "title": "Ödeme formunu sadeleştirin",
+      "description": "Mevcut 12 zorunlu alanı 7'ye indirin. Telefon, doğum tarihi, fatura adresi opsiyonel olsun.",
+      "estimatedImpact": "%34 → %18 vazgeçme oranı (tahmini)",
+      "implementationEffort": "low",
+      "relatedFrictionId": "friction-payment-form",
+      "literatureBacking": "Baymard Institute (2024) — 'Average checkout flow has 11.8 form fields, but the optimal is 8'"
+    },
+    {
+      "id": "action-2",
+      "priority": "medium",
+      "title": "Karşılaştırma listesini cookie'de sakla",
+      "description": "Kullanıcı sayfayı yenilese bile karşılaştırma listesi korunmalı. Maksimum ürün limitini 3'ten 5'e çıkarın.",
+      "estimatedImpact": "%18 → %10 vazgeçme oranı (tahmini)",
+      "implementationEffort": "medium",
+      "relatedFrictionId": "friction-product-comparison",
+      "literatureBacking": "Sakar et al. (2018) — 'ProductRelated_Duration is positively correlated with conversion'"
+    },
+    {
+      "id": "action-3",
+      "priority": "medium",
+      "title": "Kargo formuna otomatik adres tamamlama ekleyin",
+      "description": "PTT veya 3. parti adres servisi (Posta Kodu API) entegrasyonu. Şehir/ilçe/mahalle dropdown'lar.",
+      "estimatedImpact": "%15 → %8 vazgeçme oranı (tahmini)",
+      "implementationEffort": "medium",
+      "relatedFrictionId": "friction-shipping-info",
+      "literatureBacking": "Nielsen Norman Group — Form auto-fill reduces user effort by 30-40%"
+    },
+    {
+      "id": "action-4",
+      "priority": "low",
+      "title": "Kargo ücretini ödeme öncesi göster",
+      "description": "Sepet sayfasında nihai kargo tutarı görünsün. Ödeme adımında sürpriz olmasın.",
+      "estimatedImpact": "Genel güven artışı",
+      "implementationEffort": "low",
+      "relatedFrictionId": "friction-shipping-info",
+      "literatureBacking": "Baymard — 'Extra costs (shipping, taxes) is the #1 reason for cart abandonment (48%)'"
+    }
+  ],
+  "historicalRuns": [
+    {
+      "date": "2026-03-31",
+      "personaCount": 184,
+      "completedJourneys": 117,
+      "topFrictionPoint": "Ödeme Formu",
+      "topAbandonRate": 0.4
+    },
+    {
+      "date": "2026-04-07",
+      "personaCount": 227,
+      "completedJourneys": 144,
+      "topFrictionPoint": "Ödeme Formu",
+      "topAbandonRate": 0.365
+    },
+    {
+      "date": "2026-04-14",
+      "personaCount": 220,
+      "completedJourneys": 133,
+      "topFrictionPoint": "Ödeme Formu",
+      "topAbandonRate": 0.411
+    },
+    {
+      "date": "2026-04-21",
+      "personaCount": 231,
+      "completedJourneys": 152,
+      "topFrictionPoint": "Ödeme Formu",
+      "topAbandonRate": 0.399
+    }
+  ]
+}

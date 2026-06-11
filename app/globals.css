@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Atlas dark theme tokens — keep in sync with CHART in lib/format.ts */
+@theme {
+  --color-bg: #0a0e14;
+  --color-panel: #11161f;
+  --color-panel2: #161c28;
+  --color-line: #202838;
+  --color-ink: #e6ebf2;
+  --color-sub: #8a95a8;
+  --color-faint: #5b6577;
+  --color-mint: #3ddc97;
+  --color-mint-dim: #1e5e45;
+  --color-amber: #f5b544;
+  --color-red: #ff6b6b;
+  --color-blue: #5ba8ff;
+  --color-violet: #b69cff;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 18px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hidden {
+  scrollbar-width: none;
 }

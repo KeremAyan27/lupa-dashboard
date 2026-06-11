@@ -1,65 +1,145 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+// Overview — 4 KPI cards + 30-day revenue trend (report §7.2/01-02).
+
+import Link from "next/link";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import {
+  Area,
+  AreaChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { useApi } from "@/lib/use-api";
+import { CHART, formatPct, formatTLCompact } from "@/lib/format";
+import { Card, ErrorState, LoadingState } from "@/components/ui";
+import type { OverviewResponse } from "@/types/atlas";
+
+export default function OverviewPage() {
+  const { data, loading, error } = useApi<OverviewResponse>("/api/overview");
+
+  if (loading) return <LoadingState label="Loading KPIs…" />;
+  if (error || !data) return <ErrorState message={error ?? "No data"} />;
+
+  const { kpis, revenueDaily } = data;
+  const cards = [
+    {
+      key: "revenue",
+      label: "Total Revenue",
+      value: formatTLCompact(kpis.revenue),
+      changePct: kpis.revenueChangePct,
+      href: "/sales",
+    },
+    {
+      key: "conversion",
+      label: "Conversion Rate",
+      value: `%${kpis.conversionRatePct.toLocaleString("tr-TR", { maximumFractionDigits: 1 })}`,
+      changePct: kpis.conversionChangePct,
+    },
+    {
+      key: "roi",
+      label: "ROI",
+      value: `%${Math.round(kpis.roiPct)}`,
+      changePct: kpis.roiChangePct,
+    },
+    {
+      key: "growth",
+      label: "Growth Rate",
+      value: formatPct(kpis.growthRatePct),
+      changePct: kpis.growthRatePct,
+      danger: kpis.growthRatePct < 0,
+    },
+  ];
+
+  const trend = revenueDaily.map((d) => ({
+    day: Number(d.date.slice(8, 10)),
+    value: Math.round(d.revenue / 1000),
+  }));
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="flex flex-col gap-3.5 p-4">
+      <div className="grid grid-cols-2 gap-2.5">
+        {cards.map((card) => {
+          const up = card.changePct >= 0;
+          const body = (
+            <Card
+              key={card.key}
+              className={`h-full p-3.5 ${card.danger ? "border-red/30" : ""}`}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="mb-1.5 text-[11.5px] text-sub">{card.label}</div>
+              <div
+                className={`font-display text-[21px] font-bold tracking-tight ${card.danger ? "text-red" : ""}`}
+              >
+                {card.value}
+              </div>
+              <div
+                className={`mt-1 flex items-center gap-1 text-[11px] ${up ? "text-mint" : "text-red"}`}
+              >
+                {up ? <ArrowUpRight size={13} /> : <ArrowDownRight size={13} />}
+                {formatPct(card.changePct)}
+                <span className="ml-0.5 text-faint">· prev. period</span>
+              </div>
+              {card.href && (
+                <div className="mt-1.5 text-[10px] text-mint">
+                  tap for details →
+                </div>
+              )}
+            </Card>
+          );
+          return card.href ? (
+            <Link key={card.key} href={card.href}>
+              {body}
+            </Link>
+          ) : (
+            body
+          );
+        })}
+      </div>
+
+      <Card className="p-4">
+        <div className="mb-2.5 flex justify-between">
+          <span className="text-[13.5px] font-semibold">
+            Last 30 Days · Revenue Trend
+          </span>
+          <span className="text-[11px] text-faint">K ₺ / day</span>
+        </div>
+        <div className="-mx-2 h-[130px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart
+              data={trend}
+              margin={{ top: 4, right: 8, left: -8, bottom: 0 }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <defs>
+                <linearGradient id="trendFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={CHART.mint} stopOpacity={0.35} />
+                  <stop offset="100%" stopColor={CHART.mint} stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <XAxis
+                dataKey="day"
+                tick={{ fill: CHART.faint, fontSize: 9 }}
+                axisLine={false}
+                tickLine={false}
+                interval={6}
+              />
+              <YAxis
+                tick={{ fill: CHART.faint, fontSize: 9 }}
+                axisLine={false}
+                tickLine={false}
+                width={36}
+              />
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke={CHART.mint}
+                strokeWidth={2}
+                fill="url(#trendFill)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </Card>
     </div>
   );
 }
