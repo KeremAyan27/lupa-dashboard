@@ -49,13 +49,15 @@ export default function SalesPage() {
     `/api/sales?${query.toString()}`,
   );
 
-  const months = useMemo(
+  // Monthly buckets chart in M ₺, daily/weekly in K ₺
+  const divisor = data?.granularity === "monthly" ? 1_000_000 : 1_000;
+  const series = useMemo(
     () =>
-      (data?.months ?? []).map((m) => ({
+      (data?.series ?? []).map((m) => ({
         ...m,
-        valueM: m.revenue / 1_000_000,
+        value: m.revenue / divisor,
       })),
-    [data],
+    [data, divisor],
   );
 
   const facetOptions = (values: string[], allLabel: string) => [
@@ -93,9 +95,9 @@ export default function SalesPage() {
       {loading && <LoadingState label="Loading sales analytics…" />}
       {!loading && (error || !data) && <ErrorState message={error ?? "No data"} />}
 
-      {data && months.length === 0 && <EmptyState />}
+      {data && series.length === 0 && <EmptyState />}
 
-      {data && months.length > 0 && (
+      {data && series.length > 0 && (
         <>
           <SummaryStrip
             items={[
@@ -117,9 +119,10 @@ export default function SalesPage() {
             ]}
           />
 
-          <MonthlyChart
-            months={months}
-            selected={Math.min(selected, months.length - 1)}
+          <RevenueChart
+            series={series}
+            granularity={data.granularity}
+            selected={Math.min(selected, series.length - 1)}
             onSelect={setSelected}
             chart={chart}
           />
@@ -197,27 +200,43 @@ export default function SalesPage() {
   );
 }
 
-type MonthPoint = SalesResponse["months"][number] & { valueM: number };
+type ChartPoint = SalesResponse["series"][number] & { value: number };
 
-function MonthlyChart({
-  months,
+const BUCKET_NOUN: Record<SalesResponse["granularity"], string> = {
+  daily: "day",
+  weekly: "week",
+  monthly: "month",
+};
+
+function RevenueChart({
+  series,
+  granularity,
   selected,
   onSelect,
   chart,
 }: {
-  months: MonthPoint[];
+  series: ChartPoint[];
+  granularity: SalesResponse["granularity"];
   selected: number;
   onSelect: (i: number) => void;
   chart: ReturnType<typeof useTheme>["chart"];
 }) {
-  const point = months[selected];
+  const point = series[selected];
   const anomaly = point.anomaly;
+  const tickInterval = series.length > 12 ? Math.floor(series.length / 12) : 0;
 
   return (
     <Card className="p-4">
       <div className="mb-1 flex justify-between">
-        <span className="text-[13.5px] font-semibold">Monthly Revenue</span>
-        <span className="text-[10.5px] text-faint">→ tap a month</span>
+        <span className="text-[13.5px] font-semibold">
+          {granularity === "daily" ? "Daily" : granularity === "weekly" ? "Weekly" : "Monthly"}{" "}
+          Revenue
+        </span>
+        {series.length >= 2 && (
+          <span className="text-[10.5px] text-faint">
+            👆 tap a {BUCKET_NOUN[granularity]}
+          </span>
+        )}
       </div>
       <div className="mb-1 flex items-baseline gap-2.5">
         <span className="font-display text-[25px] font-bold">
@@ -235,7 +254,7 @@ function MonthlyChart({
       <div className="-mx-1.5 h-[158px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            data={months}
+            data={series}
             onClick={(state) => {
               // Recharts 3.x reports the index as a string
               const i = Number(state?.activeTooltipIndex);
@@ -251,18 +270,20 @@ function MonthlyChart({
               tick={{ fill: chart.faint, fontSize: 10 }}
               axisLine={false}
               tickLine={false}
-              interval={0}
+              interval={tickInterval}
             />
             <YAxis
               tick={{ fill: chart.faint, fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               width={30}
-              tickFormatter={(v: number) => v.toFixed(1)}
+              tickFormatter={(v: number) =>
+                granularity === "monthly" ? v.toFixed(1) : String(Math.round(v))
+              }
             />
             <Line
               type="monotone"
-              dataKey="valueM"
+              dataKey="value"
               stroke={chart.mint}
               strokeWidth={2.4}
               dot={{ r: 2.5, fill: chart.bg, stroke: chart.mint, strokeWidth: 1.5 }}
@@ -270,19 +291,19 @@ function MonthlyChart({
             />
             <ReferenceDot
               x={point.label}
-              y={point.valueM}
+              y={point.value}
               r={6}
               fill={chart.text}
               stroke={chart.mint}
               strokeWidth={2}
             />
-            {months
+            {series
               .filter((m) => m.anomaly)
               .map((m) => (
                 <ReferenceDot
-                  key={m.month}
+                  key={m.key}
                   x={m.label}
-                  y={m.valueM}
+                  y={m.value}
                   r={3.5}
                   fill={m.anomaly?.type === "revenue_drop" ? chart.red : chart.amber}
                 />
@@ -290,7 +311,7 @@ function MonthlyChart({
           </LineChart>
         </ResponsiveContainer>
       </div>
-      {anomaly ? (
+      {granularity !== "monthly" ? null : anomaly ? (
         <div
           className={`flex items-center gap-2 rounded-xl px-2.5 py-2 ${SEVERITY[anomaly.severity].chipBg}`}
         >

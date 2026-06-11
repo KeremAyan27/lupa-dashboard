@@ -1,4 +1,4 @@
-# Atlas — CEO Mobile Dashboard (Decision Support System)
+# Lupa — CEO Mobile Dashboard (Decision Support System)
 
 Boğaziçi University MIS capstone project. A mobile-first PWA that consolidates
 sales, stock, order and collection data behind four tabs, with a transparent

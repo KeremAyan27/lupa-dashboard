@@ -11,12 +11,8 @@ import {
   normalizeRange,
   rangeDays,
 } from "@/lib/date-range";
-import type {
-  DailyRevenuePoint,
-  Order,
-  OverviewResponse,
-  TrendAnomaly,
-} from "@/types/atlas";
+import { buildSeries, granularityFor } from "@/lib/series";
+import type { Order, OverviewResponse, TrendAnomaly } from "@/types/atlas";
 
 const ASSUMED = {
   sessions: 121_000, // yearly visitor sessions (analytics assumption)
@@ -71,13 +67,13 @@ export async function GET(req: NextRequest) {
           100
         : null;
 
-    // Daily revenue for the trend chart
-    const byDay = new Map<string, number>();
-    for (const o of delivered)
-      byDay.set(o.orderDate, (byDay.get(o.orderDate) ?? 0) + o.totalAmount);
-    const revenueDaily: DailyRevenuePoint[] = [...byDay.entries()]
-      .sort()
-      .map(([date, value]) => ({ date, revenue: Math.round(value) }));
+    // Revenue trend bucketed to the range-derived granularity
+    const granularity = granularityFor({ from, to });
+    const trend = buildSeries(
+      delivered.map((o) => ({ date: o.orderDate, revenue: o.totalAmount })),
+      { from, to },
+      granularity,
+    );
 
     // R1 anomalies whose month falls inside the range (computed on the full
     // dataset so the labels stay consistent with the Alert Center).
@@ -101,7 +97,8 @@ export async function GET(req: NextRequest) {
         roiChangePct: revenueChangePct === null ? null : revenueChangePct / 2,
         growthRatePct,
       },
-      revenueDaily,
+      trend,
+      granularity,
       anomalies,
       summary: {
         orders: all.length,

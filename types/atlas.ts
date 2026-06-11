@@ -144,10 +144,19 @@ export interface KpiSet {
   growthRatePct: number | null;
 }
 
-export interface DailyRevenuePoint {
-  /** ISO 8601 date */
-  date: string;
+export type ChartGranularity = "daily" | "weekly" | "monthly";
+
+/** One bucket of a revenue time series at the chosen granularity. */
+export interface SeriesPoint {
+  /** Sort/group key: ISO date, zero-padded week key, or YYYY-MM */
+  key: string;
+  /** Axis label: "05.12", "Week 2", "Mar" */
+  label: string;
   revenue: number;
+  /** Change vs previous bucket; null for the first or after an empty bucket */
+  changePct: number | null;
+  /** R1 alert for this bucket — only ever set at monthly granularity */
+  anomaly: EngineAlert | null;
 }
 
 /** Engine anomaly projected onto a time-series chart. */
@@ -168,26 +177,15 @@ export interface OverviewSummary {
 
 export interface OverviewResponse {
   kpis: KpiSet;
-  /** Daily delivered revenue across the selected range */
-  revenueDaily: DailyRevenuePoint[];
-  /** R1 anomalies whose month falls inside the selected range */
+  /** Delivered revenue bucketed to the range-derived granularity */
+  trend: SeriesPoint[];
+  granularity: ChartGranularity;
+  /** R1 anomalies whose month falls inside the selected range (any granularity) */
   anomalies: TrendAnomaly[];
   summary: OverviewSummary;
   range: { from: string; to: string };
   /** Reference "today" used for all relative calculations */
   referenceDate: string;
-}
-
-export interface MonthlyRevenuePoint {
-  /** Month key, e.g. "2025-03" */
-  month: string;
-  /** Short month label, e.g. "Mar" */
-  label: string;
-  revenue: number;
-  /** Change vs previous month; null for the first month of the dataset */
-  changePct: number | null;
-  /** Alert raised by the revenue rule for this month, if any */
-  anomaly: EngineAlert | null;
 }
 
 export interface CategoryShare {
@@ -209,7 +207,8 @@ export interface SalesSummary {
 }
 
 export interface SalesResponse {
-  months: MonthlyRevenuePoint[];
+  series: SeriesPoint[];
+  granularity: ChartGranularity;
   categories: CategoryShare[];
   cities: CityRevenue[];
   summary: SalesSummary;

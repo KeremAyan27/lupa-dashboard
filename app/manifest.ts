@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Atlas — CEO Dashboard",
-    short_name: "Atlas",
+    name: "Lupa — CEO Dashboard",
+    short_name: "Lupa",
     description:
       "Mobile-first decision support system with rule-based anomaly alerts.",
     start_url: "/",

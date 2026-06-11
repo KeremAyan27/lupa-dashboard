@@ -6,13 +6,13 @@
 // subtotals (an order can span categories); otherwise order totals are used.
 
 import { NextRequest, NextResponse } from "next/server";
-import { detectRevenueAnomalies, monthLabel } from "@/lib/alert-engine";
+import { detectRevenueAnomalies } from "@/lib/alert-engine";
 import { getOrders, getProducts } from "@/lib/data";
 import { normalizeRange } from "@/lib/date-range";
+import { buildSeries, granularityFor } from "@/lib/series";
 import type {
   CategoryShare,
   CityRevenue,
-  MonthlyRevenuePoint,
   Order,
   SalesResponse,
 } from "@/types/atlas";
@@ -45,25 +45,19 @@ export async function GET(req: NextRequest) {
             .reduce((s, it) => s + it.subtotal, 0)
         : o.totalAmount;
 
-    // Monthly revenue + rule R1 anomaly labels (engine runs on the full
-    // dataset so labels stay consistent with the Alert Center).
-    const anomalies = detectRevenueAnomalies(orders);
-    const byMonth = new Map<string, number>();
-    for (const o of delivered) {
-      const month = o.orderDate.slice(0, 7);
-      byMonth.set(month, (byMonth.get(month) ?? 0) + orderRevenue(o));
-    }
-    const entries = [...byMonth.entries()].sort();
-    const months: MonthlyRevenuePoint[] = entries.map(([month, revenue], i) => ({
-      month,
-      label: monthLabel(month),
-      revenue: Math.round(revenue),
-      changePct:
-        i > 0 && entries[i - 1][1] > 0
-          ? ((revenue - entries[i - 1][1]) / entries[i - 1][1]) * 100
-          : null,
-      anomaly: anomalies.find((a) => a.id === `R1-${month}`) ?? null,
-    }));
+    // Revenue series at the range-derived granularity. R1 anomaly labels
+    // (engine runs on the full dataset so labels stay consistent with the
+    // Alert Center) attach only at monthly granularity.
+    const granularity = granularityFor({ from, to });
+    const anomalyByMonth = new Map(
+      detectRevenueAnomalies(orders).map((a) => [a.date.slice(0, 7), a]),
+    );
+    const series = buildSeries(
+      delivered.map((o) => ({ date: o.orderDate, revenue: orderRevenue(o) })),
+      { from, to },
+      granularity,
+      anomalyByMonth,
+    );
 
     // Category distribution (range/channel filtered; not category filtered,
     // so the pie always shows where the filtered revenue sits).
@@ -105,7 +99,8 @@ export async function GET(req: NextRequest) {
     const revenue = contributing.reduce((s, o) => s + orderRevenue(o), 0);
 
     const body: SalesResponse = {
-      months,
+      series,
+      granularity,
       categories,
       cities,
       summary: {

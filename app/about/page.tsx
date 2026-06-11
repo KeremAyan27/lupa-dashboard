@@ -4,7 +4,7 @@
 import { Card } from "@/components/ui";
 
 export const metadata = {
-  title: "About & Limitations — Atlas",
+  title: "About & Limitations — Lupa",
 };
 
 const STACK = [

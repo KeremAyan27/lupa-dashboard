@@ -40,8 +40,8 @@ export default function OverviewPage() {
 
       {loading && <LoadingState label="Loading KPIs…" />}
       {!loading && (error || !data) && <ErrorState message={error ?? "No data"} />}
-      {data && data.revenueDaily.length === 0 && <EmptyState />}
-      {data && data.revenueDaily.length > 0 && (
+      {data && data.trend.length === 0 && <EmptyState />}
+      {data && data.trend.length > 0 && (
         <OverviewContent data={data} chart={chart} />
       )}
     </div>
@@ -55,7 +55,7 @@ function OverviewContent({
   data: OverviewResponse;
   chart: ChartPalette;
 }) {
-  const { kpis, revenueDaily, anomalies, summary } = data;
+  const { kpis, trend: series, granularity, anomalies, summary } = data;
 
   const cards = [
     {
@@ -89,16 +89,23 @@ function OverviewContent({
     },
   ] as const;
 
-  const trend = revenueDaily.map((d) => ({
-    date: d.date,
-    value: Math.round(d.revenue / 1000),
+  // Monthly buckets chart in M ₺, daily/weekly in K ₺
+  const divisor = granularity === "monthly" ? 1_000_000 : 1_000;
+  const trend = series.map((d) => ({
+    key: d.key,
+    label: d.label,
+    value: d.revenue / divisor,
   }));
-  // Pin each anomaly to the first trend point of its month
-  const anomalyDots = anomalies.flatMap((a) => {
-    const point = trend.find((p) => p.date.slice(0, 7) === a.date.slice(0, 7));
-    return point ? [{ ...a, x: point.date, y: point.value }] : [];
-  });
+  // R1 is a month-level rule: anomaly dots appear only at monthly granularity
+  const anomalyDots =
+    granularity === "monthly"
+      ? anomalies.flatMap((a) => {
+          const point = trend.find((p) => p.key === a.date.slice(0, 7));
+          return point ? [{ ...a, x: point.label, y: point.value }] : [];
+        })
+      : [];
   const tickInterval = Math.max(0, Math.floor(trend.length / 6));
+  const unitLabel = granularity === "monthly" ? "M ₺ / month" : `K ₺ / ${granularity === "weekly" ? "week" : "day"}`;
 
   return (
     <>
@@ -116,7 +123,7 @@ function OverviewContent({
           },
           {
             label: "Anomalies",
-            value: String(anomalyDots.length),
+            value: String(anomalies.length),
             note: "rule R1 hits in selected range",
           },
         ]}
@@ -168,7 +175,7 @@ function OverviewContent({
       <Card className="p-4">
         <div className="mb-2.5 flex justify-between">
           <span className="text-[13.5px] font-semibold">Revenue Trend</span>
-          <span className="text-[11px] text-faint">K ₺ / day</span>
+          <span className="text-[11px] text-faint">{unitLabel}</span>
         </div>
         <div className="-mx-2 h-[130px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -183,12 +190,11 @@ function OverviewContent({
                 </linearGradient>
               </defs>
               <XAxis
-                dataKey="date"
+                dataKey="label"
                 tick={{ fill: chart.faint, fontSize: 9 }}
                 axisLine={false}
                 tickLine={false}
                 interval={tickInterval}
-                tickFormatter={(d: string) => formatDate(d).slice(0, 5)}
               />
               <YAxis
                 tick={{ fill: chart.faint, fontSize: 9 }}

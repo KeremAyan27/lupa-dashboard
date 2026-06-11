@@ -147,7 +147,7 @@ function Shell({ children }: { children: React.ReactNode }) {
                 <span className="flex size-[22px] items-center justify-center rounded-[7px] bg-mint">
                   <Activity size={14} className="text-on-accent" />
                 </span>
-                <span className="font-display text-[15px] font-bold">Atlas</span>
+                <span className="font-display text-[15px] font-bold">Lupa</span>
                 <span className="rounded-md border border-line px-1.5 py-px text-[9.5px] text-faint">
                   DEMO
                 </span>

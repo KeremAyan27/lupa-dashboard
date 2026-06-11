@@ -16,10 +16,10 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Atlas — CEO Dashboard",
+  title: "Lupa — CEO Dashboard",
   description:
     "Mobile-first decision support system: KPIs, sales analytics, stock and collections with rule-based anomaly alerts.",
-  applicationName: "Atlas",
+  applicationName: "Lupa",
   icons: {
     icon: "/icons/icon-192.png",
     apple: "/icons/apple-touch-icon.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Atlas",
+    title: "Lupa",
   },
 };
 
