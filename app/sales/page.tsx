@@ -20,6 +20,7 @@ import {
   YAxis,
 } from "recharts";
 import { useApi } from "@/lib/use-api";
+import { categoryLabel } from "@/lib/display";
 import { formatTLCompact } from "@/lib/format";
 import { useTheme } from "@/components/theme";
 import { DateRangeFilter, FilterSelect, useFilters } from "@/components/filters";
@@ -59,7 +60,7 @@ export default function SalesPage() {
 
   const facetOptions = (values: string[], allLabel: string) => [
     { value: "all", label: allLabel },
-    ...values.map((v) => ({ value: v, label: v })),
+    ...values.map((v) => ({ value: v, label: categoryLabel(v) })),
   ];
 
   return (
@@ -155,7 +156,7 @@ export default function SalesPage() {
                       className="size-[9px] rounded-[3px]"
                       style={{ background: PIE_COLORS[i % PIE_COLORS.length] }}
                     />
-                    <span className="flex-1 text-sub">{c.name}</span>
+                    <span className="flex-1 text-sub">{categoryLabel(c.name)}</span>
                     <span className="font-semibold">%{c.sharePct}</span>
                   </div>
                 ))}
@@ -216,7 +217,7 @@ function MonthlyChart({
     <Card className="p-4">
       <div className="mb-1 flex justify-between">
         <span className="text-[13.5px] font-semibold">Monthly Revenue</span>
-        <span className="text-[10.5px] text-faint">tap a month →</span>
+        <span className="text-[10.5px] text-faint">→ tap a month</span>
       </div>
       <div className="mb-1 flex items-baseline gap-2.5">
         <span className="font-display text-[25px] font-bold">

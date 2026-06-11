@@ -6,6 +6,7 @@
 import { use } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Send, Truck, UserCog, Zap } from "lucide-react";
+import { localizeText } from "@/lib/display";
 import { formatDate } from "@/lib/format";
 import { AlertIcon, useAlerts, useToast } from "@/components/AppShell";
 import {
@@ -66,21 +67,21 @@ export default function AlertDetailPage({
 
       <h1 className="font-display text-[17px] font-bold">{alert.title}</h1>
       <p className="-mt-1 text-[12.5px] leading-relaxed text-sub">
-        {alert.message}
+        {localizeText(alert.message)}
       </p>
 
       <Card className="p-3.5">
         <div className="mb-1 text-[11px] tracking-wide text-faint">
           AUTOMATIC DETECTION NOTE
         </div>
-        <div className="text-[12.5px] leading-relaxed">{alert.detectionNote}</div>
+        <div className="text-[12.5px] leading-relaxed">{localizeText(alert.detectionNote)}</div>
       </Card>
 
       <Card className="p-3.5">
         <div className="mb-1 text-[11px] tracking-wide text-faint">
           AFFECTED CONTEXT
         </div>
-        <div className="text-[12.5px] leading-relaxed">{alert.affectedContext}</div>
+        <div className="text-[12.5px] leading-relaxed">{localizeText(alert.affectedContext)}</div>
       </Card>
 
       <Card className="border-mint-dim p-3.5">
@@ -88,7 +89,7 @@ export default function AlertDetailPage({
           RECOMMENDED ACTION
         </div>
         <div className="text-[12.5px] leading-relaxed">
-          {alert.recommendedAction}
+          {localizeText(alert.recommendedAction)}
         </div>
       </Card>
 

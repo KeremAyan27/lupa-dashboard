@@ -6,8 +6,9 @@
 // range scopes the movement count in the summary.
 
 import { useState } from "react";
-import { AlertTriangle, Truck } from "lucide-react";
+import { AlertTriangle, Truck, UserCog } from "lucide-react";
 import { useApi } from "@/lib/use-api";
+import { categoryLabel, supplierLabel } from "@/lib/display";
 import { formatTL } from "@/lib/format";
 import { useToast } from "@/components/AppShell";
 import { DateRangeFilter, FilterSelect, useFilters } from "@/components/filters";
@@ -50,7 +51,10 @@ export default function StockPage() {
             value={category}
             options={[
               { value: "all", label: "All Categories" },
-              ...data.facets.categories.map((c) => ({ value: c, label: c })),
+              ...data.facets.categories.map((c) => ({
+                value: c,
+                label: categoryLabel(c),
+              })),
             ]}
             onChange={setCategory}
           />
@@ -117,7 +121,8 @@ export default function StockPage() {
                       {p.name}
                     </div>
                     <div className="mt-0.5 text-[11px] text-faint">
-                      {p.productId} · {p.category} · {p.supplier}
+                      {p.productId} · {categoryLabel(p.category)} ·{" "}
+                      {supplierLabel(p.supplier)}
                     </div>
                   </div>
                   <div className="font-display text-[13px] font-semibold whitespace-nowrap">
@@ -138,14 +143,26 @@ export default function StockPage() {
                   </span>
                 </div>
                 {critical && (
-                  <button
-                    onClick={() =>
-                      toast(`✓ Order placed with ${p.supplier} for ${p.name}`)
-                    }
-                    className="mt-3 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-[11px] bg-mint py-2.5 text-xs font-semibold text-on-accent"
-                  >
-                    <Truck size={14} /> Order from Supplier
-                  </button>
+                  <div className="mt-3 flex gap-2">
+                    <button
+                      onClick={() =>
+                        toast(
+                          `✓ Order placed with ${supplierLabel(p.supplier)} for ${p.name}`,
+                        )
+                      }
+                      className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-[10px] bg-mint py-2 text-[11.5px] font-semibold text-on-accent"
+                    >
+                      <Truck size={13} /> Order from Supplier
+                    </button>
+                    <button
+                      onClick={() =>
+                        toast(`✓ Inventory manager notified about ${p.name}`)
+                      }
+                      className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-line py-2 text-[11.5px] font-semibold"
+                    >
+                      <UserCog size={13} /> Notify Inventory Manager
+                    </button>
+                  </div>
                 )}
               </Card>
             );

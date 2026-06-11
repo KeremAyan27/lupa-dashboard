@@ -32,6 +32,7 @@ import {
 import { FilterProvider } from "@/components/filters";
 import { ThemeProvider, useTheme } from "@/components/theme";
 import { useApi } from "@/lib/use-api";
+import { localizeText } from "@/lib/display";
 import { formatDate } from "@/lib/format";
 import { Card, SeverityPill, SEVERITY } from "@/components/ui";
 import type { AlertsResponse, EngineAlert } from "@/types/atlas";
@@ -311,7 +312,7 @@ function AlertDrawer({
                       )}
                     </div>
                     <div className="mt-0.5 text-[11.5px] text-sub">
-                      {alert.message}
+                      {localizeText(alert.message)}
                     </div>
                     <div className="mt-1.5 flex items-center gap-2">
                       <SeverityPill severity={alert.severity} />
