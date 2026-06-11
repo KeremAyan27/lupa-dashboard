@@ -4,6 +4,8 @@ Boğaziçi University MIS capstone project. A mobile-first PWA that consolidates
 sales, stock, order and collection data behind four tabs, with a transparent
 rule-based alert engine at its core.
 
+Live Link: https://atlas-dashboard-sage.vercel.app
+
 Stack: Next.js (App Router) · strict TypeScript · Tailwind CSS · Recharts · PWA · Vercel.
 
 ## Project structure
