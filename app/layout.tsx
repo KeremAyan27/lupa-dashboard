@@ -16,7 +16,10 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Lupa — CEO Dashboard",
+  title: {
+    template: "Lupa — CEO Dashboard · %s",
+    default: "Lupa — CEO Dashboard · Overview",
+  },
   description:
     "Mobile-first decision support system: KPIs, sales analytics, stock and collections with rule-based anomaly alerts.",
   applicationName: "Lupa",
