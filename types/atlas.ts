@@ -215,6 +215,14 @@ export interface SalesResponse {
   facets: { categories: string[]; channels: string[] };
 }
 
+/** Product enriched with sales standing inside its category. */
+export interface RankedProduct extends Product {
+  /** Units sold across delivered orders */
+  unitsSold: number;
+  /** 1-based rank within the product's category (units, ties by revenue) */
+  categoryRank: number;
+}
+
 export interface StockSummary {
   totalSkus: number;
   criticalCount: number;
@@ -225,7 +233,7 @@ export interface StockSummary {
 }
 
 export interface StockResponse {
-  products: Product[];
+  products: RankedProduct[];
   summary: StockSummary;
   facets: { categories: string[] };
 }

@@ -124,6 +124,10 @@ export default function StockPage() {
                       {p.productId} · {categoryLabel(p.category)} ·{" "}
                       {supplierLabel(p.supplier)}
                     </div>
+                    <div className="mt-0.5 text-[10.5px] text-faint">
+                      #{p.categoryRank} in {categoryLabel(p.category)} by units
+                      sold
+                    </div>
                   </div>
                   <div className="font-display text-[13px] font-semibold whitespace-nowrap">
                     {formatTL(p.price)}
@@ -139,7 +143,8 @@ export default function StockPage() {
                   <span
                     className={`text-[11.5px] font-semibold ${critical ? "text-red" : "text-sub"}`}
                   >
-                    {p.stockLevel}/{p.criticalStock}
+                    {p.stockLevel}/{p.criticalStock} (
+                    {Math.round((p.stockLevel / p.criticalStock) * 100)}%)
                   </span>
                 </div>
                 {critical && (

@@ -36,14 +36,17 @@ export default function AboutPage() {
       </Card>
 
       <Card className="p-4">
-        <h2 className="mb-1.5 text-[13.5px] font-semibold">Alerting</h2>
+        <h2 className="mb-1.5 text-[13.5px] font-semibold">How alerts work</h2>
         <p className="text-[12.5px] leading-relaxed text-sub">
-          Alerts come from a transparent, rule-based engine (
-          <code className="text-mint">lib/alert-engine.ts</code>) — threshold
-          rules, not machine learning: monthly revenue change beyond ±30%
-          (R1), stock below its critical threshold (R2) and overdue payments
-          (R3). Every alert carries its rule ID, a detection note, the
-          affected context and a recommended action.
+          Every alert comes from one of three transparent threshold rules —
+          not machine learning. R1 raises a revenue alert when monthly revenue
+          changes by more than ±30% versus the previous month; R2 raises a
+          stock alert when a product&apos;s stock falls below its critical
+          threshold; R3 raises a collection alert when a payment goes past its
+          due date. Each alert shows which rule fired, the affected data and a
+          recommended action, so every notification can be traced back to a
+          single readable comparison in{" "}
+          <code className="text-mint">lib/alert-engine.ts</code>.
         </p>
       </Card>
 

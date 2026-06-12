@@ -35,6 +35,31 @@ async function readJson<T>(file: string): Promise<T> {
 }
 
 export const getOrders = () => readJson<Order[]>("orders.json");
+
+export interface ProductSales {
+  units: number;
+  revenue: number;
+}
+
+/** Units and revenue per product across delivered orders, computed once per
+ *  server process (same lifetime as the file cache above). */
+export async function getProductSales(): Promise<Map<string, ProductSales>> {
+  const cached = cache.get("computed:productSales");
+  if (cached) return cached as Map<string, ProductSales>;
+  const orders = await getOrders();
+  const stats = new Map<string, ProductSales>();
+  for (const order of orders) {
+    if (order.status !== "delivered") continue;
+    for (const item of order.items) {
+      const entry = stats.get(item.productId) ?? { units: 0, revenue: 0 };
+      entry.units += item.quantity;
+      entry.revenue += item.subtotal;
+      stats.set(item.productId, entry);
+    }
+  }
+  cache.set("computed:productSales", stats);
+  return stats;
+}
 export const getProducts = () => readJson<Product[]>("products.json");
 export const getCustomers = () => readJson<Customer[]>("customers.json");
 export const getPayments = () => readJson<Payment[]>("payments.json");

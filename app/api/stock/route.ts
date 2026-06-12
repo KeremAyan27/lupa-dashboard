@@ -4,9 +4,9 @@
 // shown in the summary.
 
 import { NextRequest, NextResponse } from "next/server";
-import { getProducts, getStockMovements } from "@/lib/data";
+import { getProducts, getProductSales, getStockMovements } from "@/lib/data";
 import { normalizeRange } from "@/lib/date-range";
-import type { StockResponse } from "@/types/atlas";
+import type { RankedProduct, StockResponse } from "@/types/atlas";
 
 export async function GET(req: NextRequest) {
   try {
@@ -15,12 +15,41 @@ export async function GET(req: NextRequest) {
     const category = params.get("category") || null;
     const status = params.get("status") || "all"; // all | critical | healthy
 
-    const [products, movements] = await Promise.all([
+    const [products, movements, sales] = await Promise.all([
       getProducts(),
       getStockMovements(),
+      getProductSales(),
     ]);
 
-    const inCategory = products.filter(
+    // Sales rank within each category over the full catalog (independent of
+    // the active filters): units sold desc, ties broken by revenue desc.
+    const rankById = new Map<string, RankedProduct>();
+    const byCategory = new Map<string, typeof products>();
+    for (const p of products) {
+      const group = byCategory.get(p.category) ?? [];
+      group.push(p);
+      byCategory.set(p.category, group);
+    }
+    const salesOf = (id: string) => sales.get(id) ?? { units: 0, revenue: 0 };
+    for (const group of byCategory.values()) {
+      group
+        .slice()
+        .sort((a, b) => {
+          const sa = salesOf(a.productId);
+          const sb = salesOf(b.productId);
+          return sb.units - sa.units || sb.revenue - sa.revenue;
+        })
+        .forEach((p, i) => {
+          rankById.set(p.productId, {
+            ...p,
+            unitsSold: salesOf(p.productId).units,
+            categoryRank: i + 1,
+          });
+        });
+    }
+    const ranked = products.map((p) => rankById.get(p.productId)!);
+
+    const inCategory = ranked.filter(
       (p) => !category || p.category === category,
     );
     const isCritical = (p: (typeof products)[number]) =>
