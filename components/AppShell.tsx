@@ -12,10 +12,10 @@ import {
   useRef,
   useState,
 } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Activity,
   AlertTriangle,
   BarChart3,
   Bell,
@@ -144,8 +144,23 @@ function Shell({ children }: { children: React.ReactNode }) {
           <header className="relative z-10 flex items-start justify-between px-4 pt-4 pb-3">
             <div>
               <div className="flex items-center gap-2">
-                <span className="flex size-[22px] items-center justify-center rounded-[7px] bg-mint">
-                  <Activity size={14} className="text-on-accent" />
+                {/* theme-aware logo: CSS-toggled so it flips with html.dark
+                    and never flashes the wrong variant on load */}
+                <span className="block size-[22px] overflow-hidden rounded-[7px] border border-line">
+                  <Image
+                    src="/brand/logo-light.png"
+                    alt="Lupa logo"
+                    width={22}
+                    height={22}
+                    className="dark:hidden"
+                  />
+                  <Image
+                    src="/brand/logo-dark.png"
+                    alt="Lupa logo"
+                    width={22}
+                    height={22}
+                    className="hidden dark:block"
+                  />
                 </span>
                 <span className="font-display text-[15px] font-bold">Lupa</span>
                 <span className="rounded-md border border-line px-1.5 py-px text-[9.5px] text-faint">

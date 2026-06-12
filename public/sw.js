@@ -1,7 +1,7 @@
 // Atlas service worker — minimal offline support for PWA installability.
 // Static assets: cache-first. API and pages: network-first with cache fallback.
 
-const CACHE = "atlas-v1";
+const CACHE = "lupa-v2";
 const PRECACHE = ["/", "/sales", "/stock", "/payments", "/about"];
 
 self.addEventListener("install", (event) => {
