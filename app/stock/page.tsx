@@ -143,8 +143,7 @@ export default function StockPage() {
                   <span
                     className={`text-[11.5px] font-semibold ${critical ? "text-red" : "text-sub"}`}
                   >
-                    {p.stockLevel}/{p.criticalStock} (
-                    {Math.round((p.stockLevel / p.criticalStock) * 100)}%)
+                    {p.stockLevel}/{p.criticalStock}
                   </span>
                 </div>
                 {critical && (
