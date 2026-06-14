@@ -108,12 +108,20 @@ body {
 }
 
 @media (min-width: 900px) {
+  /* Lock the page: only the phone's internal area scrolls. */
+  html,
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
+
   .device-stage {
+    position: fixed;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100dvh;
-    padding: 28px;
+    overflow: hidden;
     background:
       radial-gradient(
         1100px 560px at 50% -8%,
@@ -128,6 +136,10 @@ body {
     position: relative;
     padding: 12px;
     border-radius: 66px;
+    /* --device-scale is computed in JS so the whole device always fits the
+       viewport with margin; layout size is unchanged (offset* stays natural). */
+    transform: scale(var(--device-scale, 1));
+    transform-origin: center center;
     background: linear-gradient(
       145deg,
       #dfe3e8 0%,
@@ -146,24 +158,20 @@ body {
   }
 
   .device-screen {
+    display: block;
     position: relative;
     width: 390px;
-    height: min(845px, 100dvh - 96px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior: contain;
+    height: 844px; /* natural device screen; the frame is scaled to fit */
+    /* The screen does NOT scroll — it clips and acts as the containing block
+       for the app's fixed elements (drawer, toast). Scrolling happens in the
+       inner <main>, so the header and bottom nav stay pinned. */
+    overflow: hidden;
     border-radius: 54px;
     background: var(--color-bg);
-    transform: translateZ(0); /* containing block for the app's fixed elements */
+    transform: translateZ(0);
     box-shadow:
       0 0 0 4px #0b0c0e,
       0 0 0 5px rgba(255, 255, 255, 0.06);
-  }
-  .device-screen::-webkit-scrollbar {
-    display: none;
-  }
-  .device-screen {
-    scrollbar-width: none;
   }
 
   /* Dynamic Island — fixed (scoped to the transformed screen) so it stays

@@ -153,6 +153,38 @@ function Shell({ children }: { children: React.ReactNode }) {
       navigator.serviceWorker.register("/sw.js").catch(() => {});
   }, []);
 
+  // Desktop device frame: scale the whole phone so it always fits the viewport
+  // (leaving ~8% margin) with no page scroll. offsetWidth/Height are the
+  // untransformed layout size, so the factor is measured from the natural size.
+  const frameRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const fitDevice = () => {
+      if (!window.matchMedia("(min-width: 900px)").matches) {
+        document.documentElement.style.setProperty("--device-scale", "1");
+        return;
+      }
+      // offsetWidth/Height are the untransformed layout size, so the factor is
+      // measured from the natural device size regardless of the current scale.
+      const scale = Math.min(
+        1,
+        (window.innerHeight * 0.92) / el.offsetHeight,
+        (window.innerWidth * 0.94) / el.offsetWidth,
+      );
+      document.documentElement.style.setProperty("--device-scale", String(scale));
+    };
+    fitDevice();
+    window.addEventListener("resize", fitDevice);
+    // Recompute when the frame's natural layout size changes (fonts, content).
+    const ro = new ResizeObserver(fitDevice);
+    ro.observe(el);
+    return () => {
+      window.removeEventListener("resize", fitDevice);
+      ro.disconnect();
+    };
+  }, []);
+
   return (
     <ToastContext.Provider value={{ toast }}>
       <AlertsContext.Provider
@@ -161,13 +193,13 @@ function Shell({ children }: { children: React.ReactNode }) {
         {/* On ≥900px the stage/frame/screen render a device frame around the
             app; below 900px they are display:contents and change nothing. */}
         <div className="device-stage">
-          <div className="device-frame">
+          <div className="device-frame" ref={frameRef}>
             <DeviceButtons />
             <div className="device-screen">
               {/* desktop-only cosmetic chrome, never blocks interaction */}
               <div className="device-island hidden min-[900px]:flex" />
               <div className="device-reflection hidden min-[900px]:block" />
-              <div className="relative mx-auto flex min-h-dvh max-w-md flex-col bg-bg min-[900px]:min-h-full">
+              <div className="relative mx-auto flex min-h-dvh max-w-md flex-col bg-bg min-[900px]:h-full min-[900px]:min-h-0 min-[900px]:overflow-hidden">
                 {/* ambient glow, as in the prototype */}
                 <div className="app-glow pointer-events-none absolute -top-28 -right-20 size-64" />
 
@@ -235,7 +267,11 @@ function Shell({ children }: { children: React.ReactNode }) {
             </div>
           </header>
 
-          <main className="relative z-0 flex-1 pb-24">{children}</main>
+          {/* Desktop: this is the single scroll area (between pinned top bar
+              and bottom nav). Mobile: normal in-flow, the page scrolls. */}
+          <main className="relative z-0 flex-1 pb-24 min-[900px]:min-h-0 min-[900px]:overflow-y-auto min-[900px]:pb-6 scroll-hidden">
+            {children}
+          </main>
 
           {/* toast */}
           {toastMessage && (
@@ -259,7 +295,9 @@ function Shell({ children }: { children: React.ReactNode }) {
           )}
 
           {/* bottom navigation */}
-          <nav className="fixed bottom-0 left-1/2 z-20 flex w-full max-w-md -translate-x-1/2 border-t border-line bg-bg/90 px-1 pt-2 pb-[max(10px,env(safe-area-inset-bottom))] backdrop-blur-md">
+          {/* Mobile: fixed to the viewport bottom. Desktop: in-flow at the
+              bottom of the device column so it stays pinned without scrolling. */}
+          <nav className="fixed bottom-0 left-1/2 z-20 flex w-full max-w-md -translate-x-1/2 border-t border-line bg-bg/90 px-1 pt-2 pb-[max(10px,env(safe-area-inset-bottom))] backdrop-blur-md min-[900px]:static min-[900px]:max-w-none min-[900px]:translate-x-0">
             {TABS.map((tab) => {
               const active = pathname === tab.href;
               return (
