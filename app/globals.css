@@ -92,3 +92,151 @@ body {
 .scroll-hidden {
   scrollbar-width: none;
 }
+
+/* ---------------------------------------------------------------------------
+ * Desktop device frame (iPhone 17 style)
+ * Below 900px the stage/frame/screen are display:contents — they generate no
+ * boxes, so the app fills the viewport edge-to-edge exactly as on mobile.
+ * At ≥900px the screen becomes a fixed-size, scrolling, *transformed* element:
+ * the transform makes it the containing block for the app's position:fixed
+ * elements (bottom nav, drawers, toasts), confining them to the phone screen.
+ * ------------------------------------------------------------------------- */
+.device-stage,
+.device-frame,
+.device-screen {
+  display: contents;
+}
+
+@media (min-width: 900px) {
+  .device-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 28px;
+    background:
+      radial-gradient(
+        1100px 560px at 50% -8%,
+        color-mix(in srgb, var(--color-mint) 12%, transparent),
+        transparent 60%
+      ),
+      linear-gradient(160deg, var(--color-panel2), var(--color-bg) 70%);
+  }
+
+  .device-frame {
+    display: block;
+    position: relative;
+    padding: 12px;
+    border-radius: 66px;
+    background: linear-gradient(
+      145deg,
+      #dfe3e8 0%,
+      #a9b0b8 16%,
+      #c9ced4 30%,
+      #8d949c 52%,
+      #c9ced4 70%,
+      #a4abb3 84%,
+      #d6dadf 100%
+    );
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.12),
+      0 36px 70px -24px rgba(0, 0, 0, 0.55),
+      0 14px 30px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  .device-screen {
+    position: relative;
+    width: 390px;
+    height: min(845px, 100dvh - 96px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    border-radius: 54px;
+    background: var(--color-bg);
+    transform: translateZ(0); /* containing block for the app's fixed elements */
+    box-shadow:
+      0 0 0 4px #0b0c0e,
+      0 0 0 5px rgba(255, 255, 255, 0.06);
+  }
+  .device-screen::-webkit-scrollbar {
+    display: none;
+  }
+  .device-screen {
+    scrollbar-width: none;
+  }
+
+  /* Dynamic Island — fixed (scoped to the transformed screen) so it stays
+     pinned at the top while content scrolls. */
+  .device-island {
+    position: fixed;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    display: flex;
+    width: 116px;
+    height: 31px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 11px;
+    border-radius: 999px;
+    background: #000;
+    pointer-events: none;
+  }
+  .device-island::after {
+    /* camera lens */
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 30%, #2b3b52, #05070b 70%);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  /* Glass reflection + edge vignette over the screen. */
+  .device-reflection {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        transparent 34%,
+        transparent 66%,
+        rgba(255, 255, 255, 0.05)
+      ),
+      radial-gradient(130% 80% at 50% 0%, transparent 72%, rgba(0, 0, 0, 0.1));
+  }
+
+  /* Side buttons (titanium). */
+  .device-btn {
+    position: absolute;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #b7bdc4, #8b9199);
+    box-shadow:
+      0 1px 1px rgba(255, 255, 255, 0.4) inset,
+      0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.dark .device-frame {
+  background: linear-gradient(
+    145deg,
+    #3b3e43 0%,
+    #1b1d21 18%,
+    #34373c 32%,
+    #141619 55%,
+    #34373c 72%,
+    #1b1d21 86%,
+    #3b3e43 100%
+  );
+}
+.dark .device-btn {
+  background: linear-gradient(180deg, #3a3d42, #1e2024);
+  box-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.08) inset,
+    0 1px 3px rgba(0, 0, 0, 0.5);
+}

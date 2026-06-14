@@ -95,6 +95,21 @@ export function AlertIcon({ alert, size = 15 }: { alert: EngineAlert; size?: num
   return <Bell size={size} />;
 }
 
+/* ---------- desktop device-frame side buttons ---------- */
+
+// Cosmetic titanium side buttons; rendered only at ≥900px and positioned
+// absolutely against .device-frame. aria-hidden — purely decorative.
+function DeviceButtons() {
+  return (
+    <div className="hidden min-[900px]:block" aria-hidden="true">
+      <span className="device-btn top-[112px] -left-[2px] h-[26px] w-[3px] rounded-l-[3px]" />
+      <span className="device-btn top-[162px] -left-[2px] h-[54px] w-[3px] rounded-l-[3px]" />
+      <span className="device-btn top-[228px] -left-[2px] h-[54px] w-[3px] rounded-l-[3px]" />
+      <span className="device-btn top-[190px] -right-[2px] h-[82px] w-[3px] rounded-r-[3px]" />
+    </div>
+  );
+}
+
 /* ---------- shell ---------- */
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
@@ -143,12 +158,21 @@ function Shell({ children }: { children: React.ReactNode }) {
       <AlertsContext.Provider
         value={{ alerts, loading, error, readIds, markRead, openDrawer }}
       >
-        <div className="relative mx-auto flex min-h-dvh max-w-md flex-col bg-bg">
-          {/* ambient glow, as in the prototype */}
-          <div className="app-glow pointer-events-none absolute -top-28 -right-20 size-64" />
+        {/* On ≥900px the stage/frame/screen render a device frame around the
+            app; below 900px they are display:contents and change nothing. */}
+        <div className="device-stage">
+          <div className="device-frame">
+            <DeviceButtons />
+            <div className="device-screen">
+              {/* desktop-only cosmetic chrome, never blocks interaction */}
+              <div className="device-island hidden min-[900px]:flex" />
+              <div className="device-reflection hidden min-[900px]:block" />
+              <div className="relative mx-auto flex min-h-dvh max-w-md flex-col bg-bg min-[900px]:min-h-full">
+                {/* ambient glow, as in the prototype */}
+                <div className="app-glow pointer-events-none absolute -top-28 -right-20 size-64" />
 
           {/* top bar */}
-          <header className="relative z-10 flex items-start justify-between px-4 pt-4 pb-3">
+          <header className="relative z-10 flex items-start justify-between px-4 pt-4 pb-3 min-[900px]:pt-11">
             <div>
               <div className="flex items-center gap-2">
                 {/* theme-aware logo: CSS-toggled so it flips with html.dark
@@ -258,6 +282,9 @@ function Shell({ children }: { children: React.ReactNode }) {
               );
             })}
           </nav>
+              </div>
+            </div>
+          </div>
         </div>
       </AlertsContext.Provider>
     </ToastContext.Provider>
