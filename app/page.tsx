@@ -16,6 +16,7 @@ import {
 import { useApi } from "@/lib/use-api";
 import { formatDate, formatPct, formatTLCompact } from "@/lib/format";
 import { useTheme } from "@/components/theme";
+import { ActiveAlerts } from "@/components/ActiveAlerts";
 import { DateRangeFilter, useFilters } from "@/components/filters";
 import {
   Card,
@@ -238,6 +239,8 @@ function OverviewContent({
           </div>
         )}
       </Card>
+
+      <ActiveAlerts />
     </>
   );
 }

@@ -51,6 +51,8 @@ interface AlertsContextValue {
   error: string | null;
   readIds: ReadonlySet<string>;
   markRead: (id: string) => void;
+  /** Opens the shared Alert Center drawer (used by the inline overview card). */
+  openDrawer: () => void;
 }
 const AlertsContext = createContext<AlertsContextValue>({
   alerts: [],
@@ -58,6 +60,7 @@ const AlertsContext = createContext<AlertsContextValue>({
   error: null,
   readIds: new Set(),
   markRead: () => {},
+  openDrawer: () => {},
 });
 export const useAlerts = () => useContext(AlertsContext);
 
@@ -127,6 +130,8 @@ function Shell({ children }: { children: React.ReactNode }) {
     setReadIds((prev) => new Set(prev).add(id));
   }, []);
 
+  const openDrawer = useCallback(() => setDrawerOpen(true), []);
+
   // Register the service worker for PWA installability.
   useEffect(() => {
     if ("serviceWorker" in navigator)
@@ -135,7 +140,9 @@ function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <ToastContext.Provider value={{ toast }}>
-      <AlertsContext.Provider value={{ alerts, loading, error, readIds, markRead }}>
+      <AlertsContext.Provider
+        value={{ alerts, loading, error, readIds, markRead, openDrawer }}
+      >
         <div className="relative mx-auto flex min-h-dvh max-w-md flex-col bg-bg">
           {/* ambient glow, as in the prototype */}
           <div className="app-glow pointer-events-none absolute -top-28 -right-20 size-64" />

@@ -61,6 +61,8 @@ export function detectRevenueAnomalies(orders: Order[]): EngineAlert[] {
         ? `Revenue Drop in ${monthLabel(month)}`
         : `Revenue Recovery in ${monthLabel(month)}`,
       message: `${monthLabel(month)} revenue changed ${change} vs ${monthLabel(prevMonth)} (${fmtTL(revenue)} vs ${fmtTL(prevRevenue)}).`,
+      summary: `${change} vs ${monthLabel(prevMonth)}`,
+      subject: null,
       date: `${month}-01`,
       detectionNote:
         `Rule R1: monthly delivered revenue changed by ${change}, ` +
@@ -92,6 +94,8 @@ export function detectCriticalStock(products: Product[]): EngineAlert[] {
       severity: "medium" as const,
       title: "Critical Stock Level",
       message: `${p.name} is below its critical stock threshold (${p.stockLevel}/${p.criticalStock}).`,
+      summary: `${p.stockLevel} units remaining`,
+      subject: p.name,
       date: REFERENCE_DATE,
       detectionNote: `Rule R2: stockLevel (${p.stockLevel}) < criticalStock (${p.criticalStock}).`,
       affectedContext: `${p.productId} · ${p.name} · ${p.category} · supplier: ${p.supplier}.`,
@@ -123,6 +127,8 @@ export function detectOverduePayments(payments: Payment[]): EngineAlert[] {
       severity: "medium",
       title: "Overdue Collections",
       message: `${overdue.length} payments are past due, totalling ${fmtTL(total)}.`,
+      summary: `${overdue.length} invoices overdue`,
+      subject: null,
       date: REFERENCE_DATE,
       detectionNote:
         `Rule R3: ${overdue.length} payments have status "overdue" — their dueDate passed with paidDate still null.`,

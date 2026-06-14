@@ -119,6 +119,13 @@ export interface EngineAlert {
   severity: AlertSeverity;
   title: string;
   message: string;
+  /** Compact one-line metric for inline lists, e.g. "−39.5% vs Feb",
+   *  "19 units remaining", "12 invoices overdue" */
+  summary: string;
+  /** Primary entity name when the alert is about one record (product name for
+   *  stock alerts); null for portfolio-level alerts. Surfaced as the row title
+   *  in compact views. May be a Turkish product name. */
+  subject: string | null;
   /** ISO 8601 date the alert refers to */
   date: string;
   /** How the rule detected the anomaly (shown as "Automatic Detection Note") */
