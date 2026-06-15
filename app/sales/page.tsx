@@ -5,6 +5,7 @@
 // and city ranking (report §7.2/03-05).
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import {
   CartesianGrid,
@@ -22,6 +23,7 @@ import {
 import { useApi } from "@/lib/use-api";
 import { categoryLabel } from "@/lib/display";
 import { formatTLCompact } from "@/lib/format";
+import { AnomalyDot } from "@/components/AnomalyDot";
 import { useTheme } from "@/components/theme";
 import { DateRangeFilter, FilterSelect, useFilters } from "@/components/filters";
 import {
@@ -221,6 +223,7 @@ function RevenueChart({
   onSelect: (i: number) => void;
   chart: ReturnType<typeof useTheme>["chart"];
 }) {
+  const router = useRouter();
   const point = series[selected];
   const anomaly = point.anomaly;
   const tickInterval = series.length > 12 ? Math.floor(series.length / 12) : 0;
@@ -297,17 +300,27 @@ function RevenueChart({
               stroke={chart.mint}
               strokeWidth={2}
             />
-            {series
-              .filter((m) => m.anomaly)
-              .map((m) => (
+            {series.flatMap((m) => {
+              const al = m.anomaly;
+              if (!al) return [];
+              return [
                 <ReferenceDot
                   key={m.key}
                   x={m.label}
                   y={m.value}
-                  r={3.5}
-                  fill={m.anomaly?.type === "revenue_drop" ? chart.red : chart.amber}
-                />
-              ))}
+                  shape={(props) => (
+                    <AnomalyDot
+                      cx={props.cx}
+                      cy={props.cy}
+                      color={al.type === "revenue_drop" ? chart.red : chart.amber}
+                      bg={chart.bg}
+                      label={al.title}
+                      onSelect={() => router.push(`/alerts/${al.id}`)}
+                    />
+                  )}
+                />,
+              ];
+            })}
           </LineChart>
         </ResponsiveContainer>
       </div>

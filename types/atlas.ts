@@ -168,6 +168,8 @@ export interface SeriesPoint {
 
 /** Engine anomaly projected onto a time-series chart. */
 export interface TrendAnomaly {
+  /** Engine alert id (e.g. "R1-2025-03") — the navigation target */
+  id: string;
   /** First day of the anomalous month */
   date: string;
   type: AlertType;

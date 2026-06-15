@@ -80,6 +80,7 @@ export async function GET(req: NextRequest) {
     const anomalies: TrendAnomaly[] = detectRevenueAnomalies(orders)
       .filter((a) => a.date >= from && a.date <= to)
       .map((a) => ({
+        id: a.id,
         date: a.date,
         type: a.type,
         severity: a.severity,

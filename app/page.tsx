@@ -4,6 +4,7 @@
 // for the selected range, with anomaly dots from the alert engine.
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import {
   Area,
@@ -17,6 +18,7 @@ import { useApi } from "@/lib/use-api";
 import { formatDate, formatPct, formatTLCompact } from "@/lib/format";
 import { useTheme } from "@/components/theme";
 import { ActiveAlerts } from "@/components/ActiveAlerts";
+import { AnomalyDot } from "@/components/AnomalyDot";
 import { DateRangeFilter, useFilters } from "@/components/filters";
 import {
   Card,
@@ -56,6 +58,7 @@ function OverviewContent({
   data: OverviewResponse;
   chart: ChartPalette;
 }) {
+  const router = useRouter();
   const { kpis, trend: series, granularity, anomalies, summary } = data;
 
   const cards = [
@@ -212,12 +215,19 @@ function OverviewContent({
               />
               {anomalyDots.map((a) => (
                 <ReferenceDot
-                  key={a.date}
+                  key={a.id}
                   x={a.x}
                   y={a.y}
-                  r={4}
-                  fill={a.type === "revenue_drop" ? chart.red : chart.amber}
-                  stroke="none"
+                  shape={(props) => (
+                    <AnomalyDot
+                      cx={props.cx}
+                      cy={props.cy}
+                      color={a.type === "revenue_drop" ? chart.red : chart.amber}
+                      bg={chart.bg}
+                      label={a.title}
+                      onSelect={() => router.push(`/alerts/${a.id}`)}
+                    />
+                  )}
                 />
               ))}
             </AreaChart>
@@ -226,15 +236,16 @@ function OverviewContent({
         {anomalyDots.length > 0 && (
           <div className="mt-1.5 flex flex-col gap-1">
             {anomalyDots.map((a) => (
-              <div
-                key={a.date}
-                className="flex items-center gap-1.5 text-[10.5px] text-sub"
+              <button
+                key={a.id}
+                onClick={() => router.push(`/alerts/${a.id}`)}
+                className="flex cursor-pointer items-center gap-1.5 text-left text-[10.5px] text-sub"
               >
                 <span
                   className={`size-2 rounded-full ${a.type === "revenue_drop" ? "bg-red" : "bg-amber"}`}
                 />
-                {formatDate(a.date)} · {a.title}
-              </div>
+                {formatDate(a.date)} · {a.title} →
+              </button>
             ))}
           </div>
         )}

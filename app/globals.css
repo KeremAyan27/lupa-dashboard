@@ -93,6 +93,12 @@ body {
   scrollbar-width: none;
 }
 
+/* Clickable anomaly markers on the charts. */
+.anomaly-hit {
+  cursor: pointer;
+  outline: none;
+}
+
 /* ---------------------------------------------------------------------------
  * Desktop device frame (iPhone 17 style)
  * Below 900px the stage/frame/screen are display:contents — they generate no
