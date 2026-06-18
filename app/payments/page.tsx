@@ -7,6 +7,7 @@
 import { useState } from "react";
 import { Send, UserCog } from "lucide-react";
 import { useApi } from "@/lib/use-api";
+import { customerLabel } from "@/lib/display";
 import { formatTL, formatTLCompact } from "@/lib/format";
 import { useToast } from "@/components/AppShell";
 import { DateRangeFilter, FilterSelect, useFilters } from "@/components/filters";
@@ -85,11 +86,13 @@ export default function PaymentsPage() {
 
           {data.payments.length === 0 && <EmptyState />}
 
-          {data.payments.map((p) => (
+          {data.payments.map((p) => {
+            const displayName = customerLabel(p.customerName, p.customerId);
+            return (
             <Card key={p.paymentId} className="p-3.5">
               <div className="flex justify-between gap-2">
                 <div>
-                  <div className="text-[13.5px] font-semibold">{p.customerName}</div>
+                  <div className="text-[13.5px] font-semibold">{displayName}</div>
                   <div className="mt-0.5 text-[11px] text-faint">
                     {p.paymentId} · {p.method}
                   </div>
@@ -112,7 +115,7 @@ export default function PaymentsPage() {
               {p.status !== "paid" && (
                 <div className="mt-3 flex gap-2">
                   <button
-                    onClick={() => toast(`✓ Reminder sent to ${p.customerName}`)}
+                    onClick={() => toast(`✓ Reminder sent to ${displayName}`)}
                     className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-[10px] bg-mint py-2 text-[11.5px] font-semibold text-on-accent"
                   >
                     <Send size={13} /> Send Reminder
@@ -126,7 +129,8 @@ export default function PaymentsPage() {
                 </div>
               )}
             </Card>
-          ))}
+            );
+          })}
 
           {data.matchingCount > data.payments.length && (
             <div className="text-center text-[10.5px] text-faint">

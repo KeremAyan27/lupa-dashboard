@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
 
     const [payments, orders] = await Promise.all([getPayments(), getOrders()]);
     const customerByOrder = new Map(
-      orders.map((o) => [o.orderId, o.customerName]),
+      orders.map((o) => [o.orderId, { name: o.customerName, id: o.customerId }]),
     );
 
     const inRange = payments.filter(
@@ -45,12 +45,18 @@ export async function GET(req: NextRequest) {
     const listed: ListedPayment[] = matching
       .sort((a, b) => b.amount - a.amount)
       .slice(0, LIST_CAP)
-      .map((p) => ({
-        ...p,
-        customerName: customerByOrder.get(p.orderId) ?? "Unknown customer",
-        daysOverdue:
-          p.status === "overdue" ? daysBetween(p.dueDate, REFERENCE_DATE) : null,
-      }));
+      .map((p) => {
+        const customer = customerByOrder.get(p.orderId);
+        return {
+          ...p,
+          customerName: customer?.name ?? "Unknown customer",
+          customerId: customer?.id ?? "",
+          daysOverdue:
+            p.status === "overdue"
+              ? daysBetween(p.dueDate, REFERENCE_DATE)
+              : null,
+        };
+      });
 
     const body: PaymentsResponse = {
       summary,

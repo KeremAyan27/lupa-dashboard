@@ -249,6 +249,8 @@ export interface StockResponse {
 
 export interface ListedPayment extends Payment {
   customerName: string;
+  /** Source customer id; used for the privacy-safe display label */
+  customerId: string;
   /** Days past dueDate; null unless the payment is overdue */
   daysOverdue: number | null;
 }
